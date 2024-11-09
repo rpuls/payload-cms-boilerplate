@@ -5,9 +5,11 @@ FROM base as builder
 WORKDIR /home/node/app
 COPY package*.json ./
 
-# Make PAYLOAD_SECRET available during build
+# Make necessary secrets available during build
 ARG PAYLOAD_SECRET
 ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
+ARG DATABASE_URI
+ENV DATABASE_URI=$DATABASE_URI
 
 COPY . .
 RUN yarn install
