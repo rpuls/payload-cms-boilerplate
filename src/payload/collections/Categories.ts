@@ -3,17 +3,17 @@ import type { CollectionConfig } from 'payload/types'
 const Categories: CollectionConfig = {
   slug: 'categories',
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: 'title'
   },
   access: {
-    read: () => true,
+    read: () => true
   },
   fields: [
     {
       name: 'title',
-      type: 'text',
-    },
-  ],
+      type: 'text'
+    }
+  ]
 }
 
 export default Categories

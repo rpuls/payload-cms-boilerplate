@@ -10,22 +10,22 @@ import { payloadToken } from './token'
 const queryMap = {
   pages: {
     query: PAGES,
-    key: 'Pages',
+    key: 'Pages'
   },
   posts: {
     query: POSTS,
-    key: 'Posts',
+    key: 'Posts'
   },
   projects: {
     query: PROJECTS,
-    key: 'Projects',
-  },
+    key: 'Projects'
+  }
 }
 
 export const fetchDocs = async <T>(
   collection: keyof Config['collections'],
   draft?: boolean,
-  variables?: Record<string, unknown>,
+  variables?: Record<string, unknown>
 ): Promise<T[]> => {
   if (!queryMap[collection]) throw new Error(`Collection ${collection} not found`)
 
@@ -40,14 +40,14 @@ export const fetchDocs = async <T>(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...(token?.value && draft ? { Authorization: `JWT ${token.value}` } : {}),
+      ...(token?.value && draft ? { Authorization: `JWT ${token.value}` } : {})
     },
     cache: 'no-store',
     next: { tags: [collection] },
     body: JSON.stringify({
       query: queryMap[collection].query,
-      variables,
-    }),
+      variables
+    })
   })
     ?.then(res => res.json())
     ?.then(res => {

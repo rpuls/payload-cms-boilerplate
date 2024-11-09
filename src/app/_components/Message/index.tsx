@@ -20,7 +20,7 @@ export const Message: React.FC<{
           error && classes.error,
           success && classes.success,
           warning && classes.warning,
-          !error && !success && !warning && classes.default,
+          !error && !success && !warning && classes.default
         ]
           .filter(Boolean)
           .join(' ')}

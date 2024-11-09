@@ -12,34 +12,34 @@ const columnFields: Field[] = [
     options: [
       {
         value: 'oneThird',
-        label: 'One Third',
+        label: 'One Third'
       },
       {
         value: 'half',
-        label: 'Half',
+        label: 'Half'
       },
       {
         value: 'twoThirds',
-        label: 'Two Thirds',
+        label: 'Two Thirds'
       },
       {
         value: 'full',
-        label: 'Full',
-      },
-    ],
+        label: 'Full'
+      }
+    ]
   },
   richText(),
   {
     name: 'enableLink',
-    type: 'checkbox',
+    type: 'checkbox'
   },
   link({
     overrides: {
       admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
-      },
-    },
-  }),
+        condition: (_, { enableLink }) => Boolean(enableLink)
+      }
+    }
+  })
 ]
 
 export const Content: Block = {
@@ -49,7 +49,7 @@ export const Content: Block = {
     {
       name: 'columns',
       type: 'array',
-      fields: columnFields,
-    },
-  ],
+      fields: columnFields
+    }
+  ]
 }

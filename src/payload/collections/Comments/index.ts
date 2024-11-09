@@ -12,11 +12,11 @@ const Comments: CollectionConfig = {
     preview: (comment: Partial<Comment>) =>
       `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/posts/${
         comment?.doc && typeof comment?.doc === 'object' ? comment?.doc?.slug : comment?.doc
-      }`,
+      }`
   },
   hooks: {
     afterChange: [revalidatePost],
-    afterRead: [populateUser],
+    afterRead: [populateUser]
   },
   access: {
     // Public users should only be able to read published comments
@@ -26,7 +26,7 @@ const Comments: CollectionConfig = {
       return Boolean(
         data?.status === 'published' ||
           checkRole(['admin'], user) ||
-          (typeof data?.user === 'string' ? data?.user : data?.user?.id) === user?.id,
+          (typeof data?.user === 'string' ? data?.user : data?.user?.id) === user?.id
       )
     },
     // Public users should not be able to create published comments
@@ -36,7 +36,7 @@ const Comments: CollectionConfig = {
       return Boolean(
         checkRole(['admin'], user) ||
           (data?.status === 'draft' &&
-            (typeof data?.user === 'string' ? data?.user : data?.user?.id) === user?.id),
+            (typeof data?.user === 'string' ? data?.user : data?.user?.id) === user?.id)
       )
     },
     // Public users should not be able to update published comments
@@ -46,21 +46,21 @@ const Comments: CollectionConfig = {
       return Boolean(
         checkRole(['admin'], user) ||
           (data?.status === 'draft' &&
-            (typeof data?.user === 'string' ? data?.user : data?.user?.id) === user?.id),
+            (typeof data?.user === 'string' ? data?.user : data?.user?.id) === user?.id)
       )
     },
     // Only admins can delete comments
-    delete: ({ req: { user } }) => checkRole(['admin'], user),
+    delete: ({ req: { user } }) => checkRole(['admin'], user)
   },
   versions: {
-    drafts: true,
+    drafts: true
   },
   fields: [
     {
       name: 'user',
       type: 'relationship',
       relationTo: 'users',
-      hasMany: false,
+      hasMany: false
     },
     // This field is only used to populate the user data via the `populateUser` hook
     // This is because the `user` collection has access control locked to protect user privacy
@@ -70,33 +70,33 @@ const Comments: CollectionConfig = {
       type: 'group',
       admin: {
         readOnly: true,
-        disabled: true,
+        disabled: true
       },
       access: {
-        update: () => false,
+        update: () => false
       },
       fields: [
         {
           name: 'id',
-          type: 'text',
+          type: 'text'
         },
         {
           name: 'name',
-          type: 'text',
-        },
-      ],
+          type: 'text'
+        }
+      ]
     },
     {
       name: 'doc',
       type: 'relationship',
       relationTo: 'posts',
-      hasMany: false,
+      hasMany: false
     },
     {
       name: 'comment',
-      type: 'textarea',
-    },
-  ],
+      type: 'textarea'
+    }
+  ]
 }
 
 export default Comments

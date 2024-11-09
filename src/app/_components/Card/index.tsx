@@ -22,7 +22,7 @@ export const Card: React.FC<{
     title: titleFromProps,
     doc,
     className,
-    orientation = 'vertical',
+    orientation = 'vertical'
   } = props
 
   const { slug, title, categories, meta } = doc || {}

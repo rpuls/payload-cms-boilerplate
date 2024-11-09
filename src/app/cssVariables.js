@@ -4,7 +4,7 @@ module.exports = {
   breakpoints: {
     s: 768,
     m: 1024,
-    l: 1440,
+    l: 1440
   },
   colors: {
     base0: 'rgb(255, 255, 255)',
@@ -12,6 +12,6 @@ module.exports = {
     base500: 'rgb(128, 128, 128)',
     base850: 'rgb(34, 34, 34)',
     base1000: 'rgb(0, 0, 0)',
-    error500: 'rgb(255, 111, 118)',
-  },
+    error500: 'rgb(255, 111, 118)'
+  }
 }

@@ -28,7 +28,7 @@ export const CommentForm: React.FC<{
     register,
     handleSubmit,
     formState: { errors, isLoading },
-    reset,
+    reset
   } = useForm<FormData>()
 
   const { user } = useAuth()
@@ -41,7 +41,7 @@ export const CommentForm: React.FC<{
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/comments`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             // All comments are created as drafts so that they can be moderated before being published
@@ -49,8 +49,8 @@ export const CommentForm: React.FC<{
             status: 'draft',
             doc: docID,
             user: user.id,
-            ...data,
-          }),
+            ...data
+          })
         })
 
         const json: Comment & {
@@ -72,7 +72,7 @@ export const CommentForm: React.FC<{
               navigate to the admin dashboard
             </Link>
             {' and click "publish".'}
-          </Fragment>,
+          </Fragment>
         )
 
         reset()
@@ -80,7 +80,7 @@ export const CommentForm: React.FC<{
         setError('Something went wrong')
       }
     },
-    [docID, user, reset],
+    [docID, user, reset]
   )
 
   return (

@@ -26,17 +26,17 @@ export default async function CallToActionPage() {
               type: 'h4',
               children: [
                 {
-                  text: 'Lorem ipsum dolor sit amet',
-                },
-              ],
+                  text: 'Lorem ipsum dolor sit amet'
+                }
+              ]
             },
             {
               children: [
                 {
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                },
-              ],
-            },
+                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                }
+              ]
+            }
           ]}
           links={[
             {
@@ -45,9 +45,9 @@ export default async function CallToActionPage() {
                 label: 'Lorem ipsum dolor sit amet',
                 url: '#',
                 reference: null,
-                appearance: 'primary',
-              },
-            },
+                appearance: 'primary'
+              }
+            }
           ]}
         />
         <br />
@@ -60,17 +60,17 @@ export default async function CallToActionPage() {
               type: 'h4',
               children: [
                 {
-                  text: 'Lorem ipsum dolor sit amet',
-                },
-              ],
+                  text: 'Lorem ipsum dolor sit amet'
+                }
+              ]
             },
             {
               children: [
                 {
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                },
-              ],
-            },
+                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                }
+              ]
+            }
           ]}
           links={[
             {
@@ -79,9 +79,9 @@ export default async function CallToActionPage() {
                 label: 'Lorem ipsum dolor sit amet',
                 url: '#',
                 reference: null,
-                appearance: 'primary',
-              },
-            },
+                appearance: 'primary'
+              }
+            }
           ]}
         />
       </VerticalPadding>
@@ -94,6 +94,6 @@ export const metadata: Metadata = {
   description: 'Styleguide for the Call To Action Block',
   openGraph: mergeOpenGraph({
     title: 'Call To Action Block',
-    url: '/styleguide/call-to-action',
-  }),
+    url: '/styleguide/call-to-action'
+  })
 }

@@ -21,7 +21,7 @@ export const ArchiveBlock: React.FC<
     populatedDocs,
     populatedDocsTotal,
     selectedDocs,
-    categories,
+    categories
   } = props
 
   return (

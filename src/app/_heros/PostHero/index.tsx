@@ -18,7 +18,7 @@ export const PostHero: React.FC<{
     categories,
     meta: { image: metaImage, description } = {},
     publishedAt,
-    populatedAuthors,
+    populatedAuthors
   } = post
 
   return (

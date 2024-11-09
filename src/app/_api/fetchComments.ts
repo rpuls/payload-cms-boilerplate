@@ -11,16 +11,16 @@ export const fetchComments = async (args: {
   const docs: Comment[] = await fetch(`${GRAPHQL_API_URL}/api/graphql`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     cache: 'no-store',
     body: JSON.stringify({
       query: user ? COMMENTS_BY_USER : COMMENTS_BY_DOC,
       variables: {
         user,
-        doc,
-      },
-    }),
+        doc
+      }
+    })
   })
     ?.then(res => res.json())
     ?.then(res => {

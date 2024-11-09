@@ -18,12 +18,12 @@ import classes from './index.module.scss'
 export default async function Account() {
   const { user } = await getMeUser({
     nullUserRedirect: `/login?error=${encodeURIComponent(
-      'You must be logged in to access your account.',
-    )}&redirect=${encodeURIComponent('/account')}`,
+      'You must be logged in to access your account.'
+    )}&redirect=${encodeURIComponent('/account')}`
   })
 
   const comments = await fetchComments({
-    user: user?.id,
+    user: user?.id
   })
 
   return (
@@ -39,27 +39,27 @@ export default async function Account() {
             type: 'h1',
             children: [
               {
-                text: 'Account',
-              },
-            ],
+                text: 'Account'
+              }
+            ]
           },
           {
             type: 'paragraph',
             children: [
               {
-                text: 'This is your account dashboard. Here you can update your account information, view your comment history, and more. To manage all users, ',
+                text: 'This is your account dashboard. Here you can update your account information, view your comment history, and more. To manage all users, '
               },
               {
                 type: 'link',
                 url: '/admin/collections/users',
                 children: [
                   {
-                    text: 'login to the admin dashboard.',
-                  },
-                ],
-              },
-            ],
-          },
+                    text: 'login to the admin dashboard.'
+                  }
+                ]
+              }
+            ]
+          }
         ]}
       />
       <Gutter className={classes.account}>
@@ -109,6 +109,6 @@ export const metadata: Metadata = {
   description: 'Create an account or log in to your existing account.',
   openGraph: mergeOpenGraph({
     title: 'Account',
-    url: '/account',
-  }),
+    url: '/account'
+  })
 }

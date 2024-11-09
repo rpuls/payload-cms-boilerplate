@@ -8,7 +8,7 @@ export const CallToAction: Block = {
   slug: 'cta',
   labels: {
     singular: 'Call to Action',
-    plural: 'Calls to Action',
+    plural: 'Calls to Action'
   },
   fields: [
     invertBackground,
@@ -16,8 +16,8 @@ export const CallToAction: Block = {
     linkGroup({
       appearances: ['primary', 'secondary'],
       overrides: {
-        maxRows: 2,
-      },
-    }),
-  ],
+        maxRows: 2
+      }
+    })
+  ]
 }

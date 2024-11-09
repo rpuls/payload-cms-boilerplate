@@ -28,7 +28,7 @@ const LoginForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isLoading },
+    formState: { errors, isLoading }
   } = useForm<FormData>()
 
   const onSubmit = useCallback(
@@ -41,7 +41,7 @@ const LoginForm: React.FC = () => {
         setError('There was an error with the credentials provided. Please try again.')
       }
     },
-    [login, router],
+    [login, router]
   )
 
   return (

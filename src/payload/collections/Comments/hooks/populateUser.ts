@@ -9,12 +9,12 @@ export const populateUser: AfterReadHook = async ({ doc, req: { payload } }) => 
     const userDoc = await payload.findByID({
       collection: 'users',
       id: typeof doc.user === 'object' ? doc?.user?.id : doc?.user,
-      depth: 0,
+      depth: 0
     })
 
     doc.populatedUser = {
       id: userDoc.id,
-      name: userDoc.name,
+      name: userDoc.name
     }
   }
 

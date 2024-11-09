@@ -5,16 +5,16 @@ import deepMerge from '../utilities/deepMerge'
 export const appearanceOptions = {
   primary: {
     label: 'Primary Button',
-    value: 'primary',
+    value: 'primary'
   },
   secondary: {
     label: 'Secondary Button',
-    value: 'secondary',
+    value: 'secondary'
   },
   default: {
     label: 'Default',
-    value: 'default',
-  },
+    value: 'default'
+  }
 }
 
 export type LinkAppearances = 'primary' | 'secondary' | 'default'
@@ -30,7 +30,7 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
     name: 'link',
     type: 'group',
     admin: {
-      hideGutter: true,
+      hideGutter: true
     },
     fields: [
       {
@@ -42,18 +42,18 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
             options: [
               {
                 label: 'Internal link',
-                value: 'reference',
+                value: 'reference'
               },
               {
                 label: 'Custom URL',
-                value: 'custom',
-              },
+                value: 'custom'
+              }
             ],
             defaultValue: 'reference',
             admin: {
               layout: 'horizontal',
-              width: '50%',
-            },
+              width: '50%'
+            }
           },
           {
             name: 'newTab',
@@ -62,13 +62,13 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
             admin: {
               width: '50%',
               style: {
-                alignSelf: 'flex-end',
-              },
-            },
-          },
-        ],
-      },
-    ],
+                alignSelf: 'flex-end'
+              }
+            }
+          }
+        ]
+      }
+    ]
   }
 
   const linkTypes: Field[] = [
@@ -80,8 +80,8 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
       required: true,
       maxDepth: 1,
       admin: {
-        condition: (_, siblingData) => siblingData?.type === 'reference',
-      },
+        condition: (_, siblingData) => siblingData?.type === 'reference'
+      }
     },
     {
       name: 'url',
@@ -89,9 +89,9 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => siblingData?.type === 'custom',
-      },
-    },
+        condition: (_, siblingData) => siblingData?.type === 'custom'
+      }
+    }
   ]
 
   if (!disableLabel) {
@@ -99,8 +99,8 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
       ...linkType,
       admin: {
         ...linkType.admin,
-        width: '50%',
-      },
+        width: '50%'
+      }
     }))
 
     linkResult.fields.push({
@@ -113,10 +113,10 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
           type: 'text',
           required: true,
           admin: {
-            width: '50%',
-          },
-        },
-      ],
+            width: '50%'
+          }
+        }
+      ]
     })
   } else {
     linkResult.fields = [...linkResult.fields, ...linkTypes]
@@ -126,7 +126,7 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
     let appearanceOptionsToUse = [
       appearanceOptions.default,
       appearanceOptions.primary,
-      appearanceOptions.secondary,
+      appearanceOptions.secondary
     ]
 
     if (appearances) {
@@ -139,8 +139,8 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
       defaultValue: 'default',
       options: appearanceOptionsToUse,
       admin: {
-        description: 'Choose how the link should be rendered.',
-      },
+        description: 'Choose how the link should be rendered.'
+      }
     })
   }
 

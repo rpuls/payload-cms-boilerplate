@@ -8,7 +8,7 @@ export const staticHome: Page = {
   updatedAt: '',
   meta: {
     title: 'Payload Website Template',
-    description: 'An open-source website built with Payload and Next.js.',
+    description: 'An open-source website built with Payload and Next.js.'
   },
   hero: {
     type: 'lowImpact',
@@ -17,22 +17,22 @@ export const staticHome: Page = {
       {
         children: [
           {
-            text: 'Payload Website Template',
-          },
+            text: 'Payload Website Template'
+          }
         ],
-        type: 'h1',
+        type: 'h1'
       },
       {
         children: [
           {
-            text: 'Welcome to your website! ',
+            text: 'Welcome to your website! '
           },
           {
             text: 'Your database is currently empty.',
-            bold: true,
+            bold: true
           },
           {
-            text: ' To seed your database with a few pages, posts, and projects, ',
+            text: ' To seed your database with a few pages, posts, and projects, '
           },
           {
             type: 'link',
@@ -40,23 +40,23 @@ export const staticHome: Page = {
             url: '/admin',
             children: [
               {
-                text: 'log in to the admin dashboard',
-              },
-            ],
+                text: 'log in to the admin dashboard'
+              }
+            ]
           },
           {
-            text: ' and click "seed your database". If you have already seeded your database, ',
+            text: ' and click "seed your database". If you have already seeded your database, '
           },
           {
             text: 'you may need to hard refresh this page to clear the cached request.',
-            bold: true,
-          },
-        ],
+            bold: true
+          }
+        ]
       },
       {
         children: [
           {
-            text: 'The code for this template is completely open-source and can be found ',
+            text: 'The code for this template is completely open-source and can be found '
           },
           {
             type: 'link',
@@ -65,17 +65,17 @@ export const staticHome: Page = {
             newTab: true,
             children: [
               {
-                text: 'here',
-              },
-            ],
+                text: 'here'
+              }
+            ]
           },
           {
-            text: '.',
-          },
-        ],
-      },
+            text: '.'
+          }
+        ]
+      }
     ],
-    media: '',
+    media: ''
   },
   layout: [
     {
@@ -83,15 +83,15 @@ export const staticHome: Page = {
         {
           children: [
             {
-              text: 'Seed your database',
-            },
+              text: 'Seed your database'
+            }
           ],
-          type: 'h4',
+          type: 'h4'
         },
         {
           children: [
             {
-              text: 'Your database is currently empty. To seed your database, ',
+              text: 'Your database is currently empty. To seed your database, '
             },
             {
               type: 'link',
@@ -99,15 +99,15 @@ export const staticHome: Page = {
               url: '/admin',
               children: [
                 {
-                  text: 'log in to the admin dashboard',
-                },
-              ],
+                  text: 'log in to the admin dashboard'
+                }
+              ]
             },
             {
-              text: ' and click "seed your database".',
-            },
-          ],
-        },
+              text: ' and click "seed your database".'
+            }
+          ]
+        }
       ],
       links: [
         {
@@ -116,12 +116,12 @@ export const staticHome: Page = {
             url: '/admin',
             label: 'Go to dashboard',
             appearance: 'primary',
-            reference: null,
-          },
-        },
+            reference: null
+          }
+        }
       ],
       blockName: 'CTA',
-      blockType: 'cta',
-    },
-  ],
+      blockType: 'cta'
+    }
+  ]
 }

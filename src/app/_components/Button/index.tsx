@@ -28,7 +28,7 @@ export const Button: React.FC<Props> = ({
   onClick,
   type = 'button',
   disabled,
-  invert,
+  invert
 }) => {
   let el = elFromProps
 
@@ -38,7 +38,7 @@ export const Button: React.FC<Props> = ({
     classes.button,
     classNameFromProps,
     classes[`appearance--${appearance}`],
-    invert && classes[`${appearance}--invert`],
+    invert && classes[`${appearance}--invert`]
   ]
     .filter(Boolean)
     .join(' ')

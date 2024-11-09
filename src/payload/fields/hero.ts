@@ -19,32 +19,32 @@ export const hero: Field = {
       options: [
         {
           label: 'None',
-          value: 'none',
+          value: 'none'
         },
         {
           label: 'High Impact',
-          value: 'highImpact',
+          value: 'highImpact'
         },
         {
           label: 'Medium Impact',
-          value: 'mediumImpact',
+          value: 'mediumImpact'
         },
         {
           label: 'Low Impact',
-          value: 'lowImpact',
-        },
-      ],
+          value: 'lowImpact'
+        }
+      ]
     },
     richText({
       admin: {
         elements: ['h1', largeBody, label, 'link'],
-        leaves: [],
-      },
+        leaves: []
+      }
     }),
     linkGroup({
       overrides: {
-        maxRows: 2,
-      },
+        maxRows: 2
+      }
     }),
     {
       name: 'media',
@@ -52,8 +52,8 @@ export const hero: Field = {
       relationTo: 'media',
       required: true,
       admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
-      },
-    },
-  ],
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type)
+      }
+    }
+  ]
 }

@@ -11,23 +11,23 @@ const Users: CollectionConfig = {
   slug: 'users',
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'email'],
+    defaultColumns: ['name', 'email']
   },
   access: {
     read: adminsAndUser,
     create: anyone,
     update: adminsAndUser,
     delete: admins,
-    admin: ({ req: { user } }) => checkRole(['admin'], user),
+    admin: ({ req: { user } }) => checkRole(['admin'], user)
   },
   hooks: {
-    afterChange: [loginAfterCreate],
+    afterChange: [loginAfterCreate]
   },
   auth: true,
   fields: [
     {
       name: 'name',
-      type: 'text',
+      type: 'text'
     },
     {
       name: 'roles',
@@ -37,24 +37,24 @@ const Users: CollectionConfig = {
       options: [
         {
           label: 'admin',
-          value: 'admin',
+          value: 'admin'
         },
         {
           label: 'user',
-          value: 'user',
-        },
+          value: 'user'
+        }
       ],
       hooks: {
-        beforeChange: [ensureFirstUserIsAdmin],
+        beforeChange: [ensureFirstUserIsAdmin]
       },
       access: {
         read: admins,
         create: admins,
-        update: admins,
-      },
-    },
+        update: admins
+      }
+    }
   ],
-  timestamps: true,
+  timestamps: true
 }
 
 export default Users

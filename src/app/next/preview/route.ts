@@ -10,7 +10,7 @@ export async function GET(
         value: string
       }
     }
-  },
+  }
 ): Promise<Response> {
   const token = req.cookies.get(payloadToken)?.value
   const { searchParams } = new URL(req.url)
@@ -28,8 +28,8 @@ export async function GET(
   // validate the Payload token
   const userReq = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
     headers: {
-      Authorization: `JWT ${token}`,
-    },
+      Authorization: `JWT ${token}`
+    }
   })
 
   const userRes = await userReq.json()

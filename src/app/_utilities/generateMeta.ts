@@ -22,10 +22,10 @@ export const generateMeta = async (args: { doc: Page | Project | Post }): Promis
       images: ogImage
         ? [
             {
-              url: ogImage,
-            },
+              url: ogImage
+            }
           ]
-        : undefined,
-    }),
+        : undefined
+    })
   }
 }

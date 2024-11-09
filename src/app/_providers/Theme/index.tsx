@@ -8,14 +8,14 @@ import { Theme, ThemeContextType, themeIsValid } from './types'
 
 const initialContext: ThemeContextType = {
   theme: undefined,
-  setTheme: () => null,
+  setTheme: () => null
 }
 
 const ThemeContext = createContext(initialContext)
 
 export const ThemeProvider: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme | undefined>(
-    canUseDOM ? (document.documentElement.getAttribute('data-theme') as Theme) : undefined,
+    canUseDOM ? (document.documentElement.getAttribute('data-theme') as Theme) : undefined
   )
 
   const setTheme = useCallback((themeToSet: Theme | null) => {

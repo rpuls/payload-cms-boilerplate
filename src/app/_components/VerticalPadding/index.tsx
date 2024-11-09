@@ -15,7 +15,7 @@ export const VerticalPadding: React.FC<Props> = ({
   top = 'medium',
   bottom = 'medium',
   className,
-  children,
+  children
 }) => {
   return (
     <div

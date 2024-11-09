@@ -11,7 +11,7 @@ import classes from './index.module.scss'
 
 export default async function Login() {
   await getMeUser({
-    validUserRedirect: `/account?warning=${encodeURIComponent('You are already logged in.')}`,
+    validUserRedirect: `/account?warning=${encodeURIComponent('You are already logged in.')}`
   })
 
   return (
@@ -28,6 +28,6 @@ export const metadata: Metadata = {
   description: 'Login or create an account to get started.',
   openGraph: mergeOpenGraph({
     title: 'Login',
-    url: '/login',
-  }),
+    url: '/login'
+  })
 }

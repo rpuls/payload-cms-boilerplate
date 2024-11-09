@@ -6,7 +6,7 @@ import path from 'path'
 // See `./README.md#eject` for more information
 
 dotenv.config({
-  path: path.resolve(__dirname, '../.env'),
+  path: path.resolve(__dirname, '../.env')
 })
 
 import express from 'express'
@@ -28,7 +28,7 @@ const start = async (): Promise<void> => {
     express: app,
     onInit: () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
-    },
+    }
   })
 
   if (process.env.PAYLOAD_SEED === 'true') {

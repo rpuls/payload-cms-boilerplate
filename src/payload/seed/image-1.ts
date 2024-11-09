@@ -6,7 +6,7 @@ export const image1: Omit<Media, 'id' | 'createdAt' | 'updatedAt'> = {
     {
       children: [
         {
-          text: 'Photo by ',
+          text: 'Photo by '
         },
         {
           type: 'link',
@@ -15,12 +15,12 @@ export const image1: Omit<Media, 'id' | 'createdAt' | 'updatedAt'> = {
           newTab: true,
           children: [
             {
-              text: 'Voicu Apostol',
-            },
-          ],
+              text: 'Voicu Apostol'
+            }
+          ]
         },
         {
-          text: ' on ',
+          text: ' on '
         },
         {
           type: 'link',
@@ -29,14 +29,14 @@ export const image1: Omit<Media, 'id' | 'createdAt' | 'updatedAt'> = {
           newTab: true,
           children: [
             {
-              text: 'Unsplash',
-            },
-          ],
+              text: 'Unsplash'
+            }
+          ]
         },
         {
-          text: '.',
-        },
-      ],
-    },
-  ],
+          text: '.'
+        }
+      ]
+    }
+  ]
 }

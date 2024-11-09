@@ -16,12 +16,12 @@ export const getMeUser = async (args?: {
 
   const meUserReq = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`, {
     headers: {
-      Authorization: `JWT ${token}`,
-    },
+      Authorization: `JWT ${token}`
+    }
   })
 
   const {
-    user,
+    user
   }: {
     user: User
   } = await meUserReq.json()
@@ -36,6 +36,6 @@ export const getMeUser = async (args?: {
 
   return {
     user,
-    token,
+    token
   }
 }

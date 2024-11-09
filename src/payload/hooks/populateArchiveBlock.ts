@@ -25,7 +25,7 @@ export const populateArchiveBlock: AfterReadHook = async ({ doc, context, req })
             collection: archiveBlock.relationTo,
             limit: archiveBlock.limit || 10,
             context: {
-              isPopulatingArchiveBlock: true,
+              isPopulatingArchiveBlock: true
             },
             where: {
               ...(archiveBlock?.categories?.length > 0
@@ -36,13 +36,13 @@ export const populateArchiveBlock: AfterReadHook = async ({ doc, context, req })
                           if (typeof cat === 'string' || typeof cat === 'number') return cat
                           return cat.id
                         })
-                        .join(','),
-                    },
+                        .join(',')
+                    }
                   }
                 : {}),
-              ...(typeof adminOrPublishedQuery === 'boolean' ? {} : adminOrPublishedQuery),
+              ...(typeof adminOrPublishedQuery === 'boolean' ? {} : adminOrPublishedQuery)
             },
-            sort: '-publishedAt',
+            sort: '-publishedAt'
           })
 
           return {
@@ -50,18 +50,18 @@ export const populateArchiveBlock: AfterReadHook = async ({ doc, context, req })
             populatedDocsTotal: res.totalDocs,
             populatedDocs: res.docs.map((thisDoc: Post) => ({
               relationTo: archiveBlock.relationTo,
-              value: thisDoc.id,
-            })),
+              value: thisDoc.id
+            }))
           }
         }
       }
 
       return block
-    }),
+    })
   )
 
   return {
     ...doc,
-    layout: layoutWithArchive,
+    layout: layoutWithArchive
   }
 }

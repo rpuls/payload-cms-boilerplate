@@ -2,7 +2,7 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import type {
   AdapterArguments,
   RichTextElement,
-  RichTextLeaf,
+  RichTextLeaf
 } from '@payloadcms/richtext-slate/dist/types'
 import type { RichTextField } from 'payload/dist/fields/config/types'
 
@@ -16,15 +16,15 @@ type RichText = (
   additions?: {
     elements?: RichTextElement[]
     leaves?: RichTextLeaf[]
-  },
+  }
 ) => RichTextField
 
 const richText: RichText = (
   overrides,
   additions = {
     elements: [],
-    leaves: [],
-  },
+    leaves: []
+  }
 ) => {
   const slateOptions = deepMerge<AdapterArguments['admin'], AdapterArguments['admin']>(
     overrides?.admin || {},
@@ -40,9 +40,9 @@ const richText: RichText = (
                 editor: slateEditor({
                   admin: {
                     elements: [...elements],
-                    leaves: [...leaves],
-                  },
-                }),
+                    leaves: [...leaves]
+                  }
+                })
               },
               {
                 type: 'radio',
@@ -51,43 +51,43 @@ const richText: RichText = (
                 options: [
                   {
                     label: 'Left',
-                    value: 'left',
+                    value: 'left'
                   },
                   {
                     label: 'Center',
-                    value: 'center',
+                    value: 'center'
                   },
                   {
                     label: 'Right',
-                    value: 'right',
-                  },
-                ],
+                    value: 'right'
+                  }
+                ]
               },
               {
                 name: 'enableLink',
                 type: 'checkbox',
-                label: 'Enable Link',
+                label: 'Enable Link'
               },
               link({
                 appearances: false,
                 disableLabel: true,
                 overrides: {
                   admin: {
-                    condition: (_, data) => Boolean(data?.enableLink),
-                  },
-                },
-              }),
-            ],
-          },
-        },
+                    condition: (_, data) => Boolean(data?.enableLink)
+                  }
+                }
+              })
+            ]
+          }
+        }
       },
       elements: [...elements, ...(additions.elements || [])],
-      leaves: [...leaves, ...(additions.leaves || [])],
-    },
+      leaves: [...leaves, ...(additions.leaves || [])]
+    }
   )
 
   const fieldOverrides = {
-    ...(overrides || {}),
+    ...(overrides || {})
   }
 
   delete fieldOverrides.admin
@@ -98,10 +98,10 @@ const richText: RichText = (
       type: 'richText',
       required: true,
       editor: slateEditor({
-        admin: slateOptions,
-      }),
+        admin: slateOptions
+      })
     },
-    fieldOverrides || {},
+    fieldOverrides || {}
   )
 }
 

@@ -28,7 +28,7 @@ export default async function Page({ params: { slug = 'home' } }) {
     page = await fetchDoc<Page>({
       collection: 'pages',
       slug,
-      draft: isDraftMode,
+      draft: isDraftMode
     })
   } catch (error) {
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
@@ -79,7 +79,7 @@ export async function generateMetadata({ params: { slug = 'home' } }): Promise<M
     page = await fetchDoc<Page>({
       collection: 'pages',
       slug,
-      draft: isDraftMode,
+      draft: isDraftMode
     })
   } catch (error) {
     // don't throw an error if the fetch fails

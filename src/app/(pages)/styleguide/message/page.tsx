@@ -38,6 +38,6 @@ export const metadata: Metadata = {
   description: 'Styleguide for message component.',
   openGraph: mergeOpenGraph({
     title: 'Message Component',
-    url: '/styleguide/message',
-  }),
+    url: '/styleguide/message'
+  })
 }

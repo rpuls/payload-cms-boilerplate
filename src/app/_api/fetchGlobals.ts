@@ -8,12 +8,12 @@ export async function fetchSettings(): Promise<Settings> {
   const settings = await fetch(`${GRAPHQL_API_URL}/api/graphql`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     cache: 'no-store',
     body: JSON.stringify({
-      query: SETTINGS_QUERY,
-    }),
+      query: SETTINGS_QUERY
+    })
   })
     ?.then(res => {
       if (!res.ok) throw new Error('Error fetching doc')
@@ -33,12 +33,12 @@ export async function fetchHeader(): Promise<Header> {
   const header = await fetch(`${GRAPHQL_API_URL}/api/graphql`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     cache: 'no-store',
     body: JSON.stringify({
-      query: HEADER_QUERY,
-    }),
+      query: HEADER_QUERY
+    })
   })
     ?.then(res => {
       if (!res.ok) throw new Error('Error fetching doc')
@@ -58,11 +58,11 @@ export async function fetchFooter(): Promise<Footer> {
   const footer = await fetch(`${GRAPHQL_API_URL}/api/graphql`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      query: FOOTER_QUERY,
-    }),
+      query: FOOTER_QUERY
+    })
   })
     .then(res => {
       if (!res.ok) throw new Error('Error fetching doc')
@@ -91,12 +91,12 @@ export const fetchGlobals = async (): Promise<{
   const [settings, header, footer]: [Settings, Header, Footer] = await Promise.all([
     await settingsData,
     await headerData,
-    await footerData,
+    await footerData
   ])
 
   return {
     settings,
     header,
-    footer,
+    footer
   }
 }

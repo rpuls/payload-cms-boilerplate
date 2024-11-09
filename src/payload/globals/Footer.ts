@@ -5,7 +5,7 @@ import link from '../fields/link'
 export const Footer: GlobalConfig = {
   slug: 'footer',
   access: {
-    read: () => true,
+    read: () => true
   },
   fields: [
     {
@@ -14,9 +14,9 @@ export const Footer: GlobalConfig = {
       maxRows: 6,
       fields: [
         link({
-          appearances: false,
-        }),
-      ],
-    },
-  ],
+          appearances: false
+        })
+      ]
+    }
+  ]
 }

@@ -19,29 +19,29 @@ export const Projects: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     preview: doc => {
       return `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/next/preview?url=${encodeURIComponent(
-        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/projects/${doc?.slug}`,
+        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/projects/${doc?.slug}`
       )}&secret=${process.env.PAYLOAD_PUBLIC_DRAFT_SECRET}`
-    },
+    }
   },
   hooks: {
     beforeChange: [populatePublishedAt],
     afterChange: [revalidateProject],
-    afterRead: [populateArchiveBlock],
+    afterRead: [populateArchiveBlock]
   },
   versions: {
-    drafts: true,
+    drafts: true
   },
   access: {
     read: adminsOrPublished,
     update: admins,
     create: admins,
-    delete: admins,
+    delete: admins
   },
   fields: [
     {
       name: 'title',
       type: 'text',
-      required: true,
+      required: true
     },
     {
       name: 'categories',
@@ -49,22 +49,22 @@ export const Projects: CollectionConfig = {
       relationTo: 'categories',
       hasMany: true,
       admin: {
-        position: 'sidebar',
-      },
+        position: 'sidebar'
+      }
     },
     {
       name: 'publishedAt',
       type: 'date',
       admin: {
-        position: 'sidebar',
-      },
+        position: 'sidebar'
+      }
     },
     {
       type: 'tabs',
       tabs: [
         {
           label: 'Hero',
-          fields: [hero],
+          fields: [hero]
         },
         {
           label: 'Content',
@@ -73,11 +73,11 @@ export const Projects: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
-            },
-          ],
-        },
-      ],
+              blocks: [CallToAction, Content, MediaBlock, Archive]
+            }
+          ]
+        }
+      ]
     },
     {
       name: 'relatedProjects',
@@ -87,11 +87,11 @@ export const Projects: CollectionConfig = {
       filterOptions: ({ id }) => {
         return {
           id: {
-            not_in: [id],
-          },
+            not_in: [id]
+          }
         }
-      },
+      }
     },
-    slugField(),
-  ],
+    slugField()
+  ]
 }

@@ -19,7 +19,7 @@ export const Image: React.FC<MediaProps> = props => {
     priority,
     fill,
     src: srcFromProps,
-    alt: altFromProps,
+    alt: altFromProps
   } = props
 
   const [isLoading, setIsLoading] = React.useState(true)
@@ -34,7 +34,7 @@ export const Image: React.FC<MediaProps> = props => {
       width: fullWidth,
       height: fullHeight,
       filename: fullFilename,
-      alt: altFromResource,
+      alt: altFromResource
     } = resource
 
     width = fullWidth

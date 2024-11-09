@@ -6,7 +6,7 @@ export const populatePublishedAt: BeforeChangeHook = ({ data, req, operation }) 
       const now = new Date()
       return {
         ...data,
-        publishedAt: now,
+        publishedAt: now
       }
     }
   }

@@ -4,7 +4,7 @@ import nextBuild from 'next/dist/build'
 import path from 'path'
 
 dotenv.config({
-  path: path.resolve(__dirname, '../.env'),
+  path: path.resolve(__dirname, '../.env')
 })
 
 import express from 'express'
@@ -21,7 +21,7 @@ const start = async (): Promise<void> => {
     express: app,
     onInit: () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
-    },
+    }
   })
 
   if (process.env.PAYLOAD_SEED === 'true') {
@@ -42,7 +42,7 @@ const start = async (): Promise<void> => {
 
   const nextApp = next({
     dev: process.env.NODE_ENV !== 'production',
-    port: Number(PORT),
+    port: Number(PORT)
   })
 
   const nextHandler = nextApp.getRequestHandler()

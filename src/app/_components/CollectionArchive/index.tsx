@@ -49,7 +49,7 @@ export const CollectionArchive: React.FC<Props> = props => {
     relationTo,
     selectedDocs,
     showPageRange,
-    sort = '-createdAt',
+    sort = '-createdAt'
   } = props
 
   const [results, setResults] = useState<Result>({
@@ -65,7 +65,7 @@ export const CollectionArchive: React.FC<Props> = props => {
     page: 1,
     prevPage: 1,
     totalDocs: typeof populatedDocsTotal === 'number' ? populatedDocsTotal : 0,
-    totalPages: 1,
+    totalPages: 1
   })
 
   const [isLoading, setIsLoading] = useState(false)
@@ -119,19 +119,19 @@ export const CollectionArchive: React.FC<Props> = props => {
             ...(categories
               ? {
                   categories: {
-                    in: categories,
-                  },
+                    in: categories
+                  }
                 }
-              : {}),
-          },
+              : {})
+          }
         },
-        { encode: false },
+        { encode: false }
       )
 
       const makeRequest = async () => {
         try {
           const req = await fetch(
-            `${process.env.NEXT_PUBLIC_SERVER_URL}/api/${relationTo}?${searchQuery}`,
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/api/${relationTo}?${searchQuery}`
           )
 
           const json = await req.json()

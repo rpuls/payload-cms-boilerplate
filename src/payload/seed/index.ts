@@ -43,15 +43,15 @@ export const seed = async (payload: Payload): Promise<void> => {
     ...collections.map(async collection =>
       payload.delete({
         collection: collection as 'media',
-        where: {},
-      }),
+        where: {}
+      })
     ), // eslint-disable-line function-paren-newline
     ...globals.map(async global =>
       payload.updateGlobal({
         slug: global as 'header',
-        data: {},
-      }),
-    ), // eslint-disable-line function-paren-newline
+        data: {}
+      })
+    ) // eslint-disable-line function-paren-newline
   ])
 
   payload.logger.info(`— Seeding demo author and user...`)
@@ -62,11 +62,11 @@ export const seed = async (payload: Payload): Promise<void> => {
         collection: 'users',
         where: {
           email: {
-            equals: email,
-          },
-        },
+            equals: email
+          }
+        }
       })
-    }),
+    })
   )
 
   let [{ id: demoAuthorID }, { id: demoUserID }] = await Promise.all([
@@ -76,8 +76,8 @@ export const seed = async (payload: Payload): Promise<void> => {
         email: 'demo-author@payloadcms.com',
         name: 'Demo Author',
         password: 'password',
-        roles: ['admin'],
-      },
+        roles: ['admin']
+      }
     }),
     await payload.create({
       collection: 'users',
@@ -85,9 +85,9 @@ export const seed = async (payload: Payload): Promise<void> => {
         email: 'demo-user@payloadcms.com',
         name: 'Demo User',
         password: 'password',
-        roles: ['user'],
-      },
-    }),
+        roles: ['user']
+      }
+    })
   ])
 
   payload.logger.info(`— Seeding media...`)
@@ -96,13 +96,13 @@ export const seed = async (payload: Payload): Promise<void> => {
     await payload.create({
       collection: 'media',
       filePath: path.resolve(__dirname, 'image-1.jpg'),
-      data: image1,
+      data: image1
     }),
     await payload.create({
       collection: 'media',
       filePath: path.resolve(__dirname, 'image-2.jpg'),
-      data: image2,
-    }),
+      data: image2
+    })
   ])
 
   payload.logger.info(`— Seeding categories...`)
@@ -113,44 +113,44 @@ export const seed = async (payload: Payload): Promise<void> => {
     financeCategory,
     designCat,
     softwareCat,
-    engineeringCat,
+    engineeringCat
   ] = await Promise.all([
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'Technology',
-      },
+        title: 'Technology'
+      }
     }),
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'News',
-      },
+        title: 'News'
+      }
     }),
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'Finance',
-      },
+        title: 'Finance'
+      }
     }),
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'Design',
-      },
+        title: 'Design'
+      }
     }),
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'Software',
-      },
+        title: 'Software'
+      }
     }),
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'Engineering',
-      },
-    }),
+        title: 'Engineering'
+      }
+    })
   ])
 
   let image1ID = image1Doc.id
@@ -171,8 +171,8 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: JSON.parse(
       JSON.stringify({ ...post1, categories: [technologyCategory.id] })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
-        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
-    ),
+        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
+    )
   })
 
   const post2Doc = await payload.create({
@@ -180,8 +180,8 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: JSON.parse(
       JSON.stringify({ ...post2, categories: [newsCategory.id] })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
-        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
-    ),
+        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
+    )
   })
 
   const post3Doc = await payload.create({
@@ -189,8 +189,8 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: JSON.parse(
       JSON.stringify({ ...post3, categories: [financeCategory.id] })
         .replace(/"\{\{IMAGE\}\}"/g, image1ID)
-        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID),
-    ),
+        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
+    )
   })
 
   const posts = [post1Doc, post2Doc, post3Doc]
@@ -202,23 +202,23 @@ export const seed = async (payload: Payload): Promise<void> => {
       collection: 'posts',
       id: post1Doc.id,
       data: {
-        relatedPosts: [post2Doc.id, post3Doc.id],
-      },
+        relatedPosts: [post2Doc.id, post3Doc.id]
+      }
     }),
     await payload.update({
       collection: 'posts',
       id: post2Doc.id,
       data: {
-        relatedPosts: [post1Doc.id, post3Doc.id],
-      },
+        relatedPosts: [post1Doc.id, post3Doc.id]
+      }
     }),
     await payload.update({
       collection: 'posts',
       id: post3Doc.id,
       data: {
-        relatedPosts: [post1Doc.id, post2Doc.id],
-      },
-    }),
+        relatedPosts: [post1Doc.id, post2Doc.id]
+      }
+    })
   ])
 
   payload.logger.info(`— Seeding comments...`)
@@ -234,10 +234,10 @@ export const seed = async (payload: Payload): Promise<void> => {
               index + 1
             }. It has been approved by an admin and is now visible to the public. You can leave your own comment on this post using the form below.`,
             user: demoUserID,
-            doc: post.id,
-          },
-        }),
-    ),
+            doc: post.id
+          }
+        })
+    )
   )
 
   payload.logger.info(`— Seeding projects...`)
@@ -249,9 +249,9 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: JSON.parse(
       JSON.stringify({ ...project1, categories: [designCat.id] }).replace(
         /"\{\{IMAGE\}\}"/g,
-        image2ID,
-      ),
-    ),
+        image2ID
+      )
+    )
   })
 
   const project2Doc = await payload.create({
@@ -259,9 +259,9 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: JSON.parse(
       JSON.stringify({ ...project2, categories: [softwareCat.id] }).replace(
         /"\{\{IMAGE\}\}"/g,
-        image2ID,
-      ),
-    ),
+        image2ID
+      )
+    )
   })
 
   const project3Doc = await payload.create({
@@ -269,9 +269,9 @@ export const seed = async (payload: Payload): Promise<void> => {
     data: JSON.parse(
       JSON.stringify({ ...project3, categories: [engineeringCat.id] }).replace(
         /"\{\{IMAGE\}\}"/g,
-        image2ID,
-      ),
-    ),
+        image2ID
+      )
+    )
   })
 
   // update each project with related projects
@@ -281,37 +281,37 @@ export const seed = async (payload: Payload): Promise<void> => {
       collection: 'projects',
       id: project1Doc.id,
       data: {
-        relatedProjects: [project2Doc.id, project3Doc.id],
-      },
+        relatedProjects: [project2Doc.id, project3Doc.id]
+      }
     }),
     await payload.update({
       collection: 'projects',
       id: project2Doc.id,
       data: {
-        relatedProjects: [project1Doc.id, project3Doc.id],
-      },
+        relatedProjects: [project1Doc.id, project3Doc.id]
+      }
     }),
     await payload.update({
       collection: 'projects',
       id: project3Doc.id,
       data: {
-        relatedProjects: [project1Doc.id, project2Doc.id],
-      },
-    }),
+        relatedProjects: [project1Doc.id, project2Doc.id]
+      }
+    })
   ])
 
   payload.logger.info(`— Seeding posts page...`)
 
   const postsPageDoc = await payload.create({
     collection: 'pages',
-    data: JSON.parse(JSON.stringify(postsPage).replace(/"\{\{IMAGE\}\}"/g, image1ID)),
+    data: JSON.parse(JSON.stringify(postsPage).replace(/"\{\{IMAGE\}\}"/g, image1ID))
   })
 
   payload.logger.info(`— Seeding projects page...`)
 
   const projectsPageDoc = await payload.create({
     collection: 'pages',
-    data: JSON.parse(JSON.stringify(projectsPage).replace(/"\{\{IMAGE\}\}"/g, image1ID)),
+    data: JSON.parse(JSON.stringify(projectsPage).replace(/"\{\{IMAGE\}\}"/g, image1ID))
   })
 
   let postsPageID = postsPageDoc.id
@@ -331,8 +331,8 @@ export const seed = async (payload: Payload): Promise<void> => {
         .replace(/"\{\{IMAGE_1\}\}"/g, image1ID)
         .replace(/"\{\{IMAGE_2\}\}"/g, image2ID)
         .replace(/"\{\{POSTS_PAGE_ID\}\}"/g, postsPageID)
-        .replace(/"\{\{PROJECTS_PAGE_ID\}\}"/g, projectsPageID),
-    ),
+        .replace(/"\{\{PROJECTS_PAGE_ID\}\}"/g, projectsPageID)
+    )
   })
 
   payload.logger.info(`— Seeding settings...`)
@@ -341,8 +341,8 @@ export const seed = async (payload: Payload): Promise<void> => {
     slug: 'settings',
     data: {
       postsPage: postsPageDoc.id,
-      projectsPage: projectsPageDoc.id,
-    },
+      projectsPage: projectsPageDoc.id
+    }
   })
 
   payload.logger.info(`— Seeding header...`)
@@ -356,23 +356,23 @@ export const seed = async (payload: Payload): Promise<void> => {
             type: 'reference',
             reference: {
               relationTo: 'pages',
-              value: postsPageDoc.id,
+              value: postsPageDoc.id
             },
-            label: 'Posts',
-          },
+            label: 'Posts'
+          }
         },
         {
           link: {
             type: 'reference',
             reference: {
               relationTo: 'pages',
-              value: projectsPageDoc.id,
+              value: projectsPageDoc.id
             },
-            label: 'Projects',
-          },
-        },
-      ],
-    },
+            label: 'Projects'
+          }
+        }
+      ]
+    }
   })
 
   payload.logger.info('Seeded database successfully!')

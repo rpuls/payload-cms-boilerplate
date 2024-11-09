@@ -24,7 +24,7 @@ export const Input: React.FC<Props> = ({
   type = 'text',
   validate,
   placeholder,
-  disabled,
+  disabled
 }) => {
   return (
     <div className={classes.inputWrap}>
@@ -41,7 +41,7 @@ export const Input: React.FC<Props> = ({
           placeholder={placeholder}
           {...register(name, {
             required,
-            validate,
+            validate
           })}
           disabled={disabled}
         />
@@ -57,10 +57,10 @@ export const Input: React.FC<Props> = ({
               ? {
                   pattern: {
                     value: /\S+@\S+\.\S+/,
-                    message: 'Please enter a valid email',
-                  },
+                    message: 'Please enter a valid email'
+                  }
                 }
-              : {}),
+              : {})
           })}
           disabled={disabled}
         />

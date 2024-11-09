@@ -29,7 +29,7 @@ const generateTitle: GenerateTitle = () => {
 }
 
 dotenv.config({
-  path: path.resolve(__dirname, '../../.env'),
+  path: path.resolve(__dirname, '../../.env')
 })
 
 export default buildConfig({
@@ -42,7 +42,7 @@ export default buildConfig({
       beforeLogin: [BeforeLogin],
       // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
-      beforeDashboard: [BeforeDashboard],
+      beforeDashboard: [BeforeDashboard]
     },
     webpack: config => ({
       ...config,
@@ -53,26 +53,26 @@ export default buildConfig({
           dotenv: path.resolve(__dirname, './dotenv.js'),
           [path.resolve(__dirname, './endpoints/seed')]: path.resolve(
             __dirname,
-            './emptyModuleMock.js',
-          ),
-        },
-      },
-    }),
+            './emptyModuleMock.js'
+          )
+        }
+      }
+    })
   },
   editor: slateEditor({}),
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI,
-    },
+      connectionString: process.env.DATABASE_URI
+    }
   }),
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   collections: [Pages, Posts, Projects, Media, Categories, Users, Comments],
   globals: [Settings, Header, Footer],
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    outputFile: path.resolve(__dirname, 'payload-types.ts')
   },
   graphQL: {
-    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql')
   },
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
@@ -82,21 +82,21 @@ export default buildConfig({
     {
       path: '/seed',
       method: 'get',
-      handler: seed,
-    },
+      handler: seed
+    }
   ],
   plugins: [
     redirects({
-      collections: ['pages', 'posts'],
+      collections: ['pages', 'posts']
     }),
     nestedDocs({
-      collections: ['categories'],
+      collections: ['categories']
     }),
     seo({
       collections: ['pages', 'posts', 'projects'],
       generateTitle,
-      uploadsCollection: 'media',
+      uploadsCollection: 'media'
     }),
-    payloadCloud(),
-  ],
+    payloadCloud()
+  ]
 })

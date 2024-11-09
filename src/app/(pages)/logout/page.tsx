@@ -33,6 +33,6 @@ export const metadata: Metadata = {
   description: 'You have been logged out.',
   openGraph: mergeOpenGraph({
     title: 'Logout',
-    url: '/logout',
-  }),
+    url: '/logout'
+  })
 }

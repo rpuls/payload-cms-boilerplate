@@ -46,7 +46,7 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = props => {
                   className={[
                     classes.column,
                     comments.length === 2 && classes['cols-half'],
-                    comments.length >= 3 && classes['cols-thirds'],
+                    comments.length >= 3 && classes['cols-thirds']
                   ]
                     .filter(Boolean)
                     .join(' ')}

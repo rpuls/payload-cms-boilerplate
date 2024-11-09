@@ -4,18 +4,18 @@ import classes from './index.module.scss'
 
 const defaultLabels = {
   plural: 'Docs',
-  singular: 'Doc',
+  singular: 'Doc'
 }
 
 const defaultCollectionLabels = {
   posts: {
     plural: 'Posts',
-    singular: 'Post',
+    singular: 'Post'
   },
   projects: {
     plural: 'Projects',
-    singular: 'Project',
-  },
+    singular: 'Project'
+  }
 }
 
 export const PageRange: React.FC<{
@@ -35,7 +35,7 @@ export const PageRange: React.FC<{
     collectionLabels: collectionLabelsFromProps,
     currentPage,
     limit,
-    totalDocs,
+    totalDocs
   } = props
 
   let indexStart = (currentPage ? currentPage - 1 : 1) * (limit || 1) + 1

@@ -12,16 +12,16 @@ import classes from './index.module.scss'
 const collectionLabels = {
   pages: {
     singular: 'Page',
-    plural: 'Pages',
+    plural: 'Pages'
   },
   posts: {
     singular: 'Post',
-    plural: 'Posts',
+    plural: 'Posts'
   },
   projects: {
     singular: 'Project',
-    plural: 'Projects',
-  },
+    plural: 'Projects'
+  }
 }
 
 const Title: React.FC = () => <span>Dashboard</span>
@@ -54,7 +54,7 @@ export const AdminBar: React.FC<{
           collection={collection}
           collectionLabels={{
             singular: collectionLabels[collection]?.singular || 'Page',
-            plural: collectionLabels[collection]?.plural || 'Pages',
+            plural: collectionLabels[collection]?.plural || 'Pages'
           }}
           key={user?.id} // use key to get the admin bar to re-run its `me` request
           cmsURL={process.env.NEXT_PUBLIC_SERVER_URL}
@@ -62,14 +62,14 @@ export const AdminBar: React.FC<{
           classNames={{
             user: classes.user,
             logo: classes.logo,
-            controls: classes.controls,
+            controls: classes.controls
           }}
           logo={<Title />}
           style={{
             position: 'relative',
             zIndex: 'unset',
             padding: 0,
-            backgroundColor: 'transparent',
+            backgroundColor: 'transparent'
           }}
         />
       </Gutter>

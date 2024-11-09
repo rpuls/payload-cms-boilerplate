@@ -37,6 +37,6 @@ export const metadata: Metadata = {
   description: 'Styleguide for Buttons',
   openGraph: mergeOpenGraph({
     title: 'Buttons',
-    url: '/styleguide/buttons',
-  }),
+    url: '/styleguide/buttons'
+  })
 }

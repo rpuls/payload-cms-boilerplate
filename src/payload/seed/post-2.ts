@@ -7,7 +7,7 @@ export const post2: Partial<Post> = {
   meta: {
     title: 'Post 2',
     description: 'This is the second post.',
-    image: '{{IMAGE}}',
+    image: '{{IMAGE}}'
   },
   authors: ['{{AUTHOR}}'],
   hero: {
@@ -17,13 +17,13 @@ export const post2: Partial<Post> = {
       {
         children: [
           {
-            text: 'Post 2',
-          },
+            text: 'Post 2'
+          }
         ],
-        type: 'h1',
-      },
+        type: 'h1'
+      }
     ],
-    media: null,
+    media: null
   },
   layout: [
     {
@@ -35,19 +35,19 @@ export const post2: Partial<Post> = {
             {
               children: [
                 {
-                  text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components.",
-                },
-              ],
-            },
+                  text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components."
+                }
+              ]
+            }
           ],
           link: {
             reference: null,
             url: '',
-            label: '',
-          },
-        },
-      ],
-    },
+            label: ''
+          }
+        }
+      ]
+    }
   ],
   enablePremiumContent: true,
   premiumContent: [
@@ -61,22 +61,22 @@ export const post2: Partial<Post> = {
               children: [
                 {
                   text: 'This is premium content.',
-                  bold: true,
+                  bold: true
                 },
                 {
-                  text: ' It is only available to authenticated users. This content can be anything from additional video, text, and content, to download links and more. These are simply layout building blocks configured in the CMS.',
-                },
-              ],
-            },
+                  text: ' It is only available to authenticated users. This content can be anything from additional video, text, and content, to download links and more. These are simply layout building blocks configured in the CMS.'
+                }
+              ]
+            }
           ],
           link: {
             reference: null,
             url: '',
-            label: '',
-          },
-        },
-      ],
-    },
+            label: ''
+          }
+        }
+      ]
+    }
   ],
-  relatedPosts: [], // this is populated by the seed script
+  relatedPosts: [] // this is populated by the seed script
 }

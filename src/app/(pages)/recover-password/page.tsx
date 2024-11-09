@@ -20,6 +20,6 @@ export const metadata: Metadata = {
   description: 'Enter your email address to recover your password.',
   openGraph: mergeOpenGraph({
     title: 'Recover Password',
-    url: '/recover-password',
-  }),
+    url: '/recover-password'
+  })
 }

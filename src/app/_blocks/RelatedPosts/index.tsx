@@ -36,7 +36,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = props => {
                 className={[
                   classes.column,
                   docs.length === 2 && classes['cols-half'],
-                  docs.length >= 3 && classes['cols-thirds'],
+                  docs.length >= 3 && classes['cols-thirds']
                 ]
                   .filter(Boolean)
                   .join(' ')}

@@ -44,13 +44,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
         credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           email: args.email,
           password: args.password,
-          passwordConfirm: args.passwordConfirm,
-        }),
+          passwordConfirm: args.passwordConfirm
+        })
       })
 
       if (res.ok) {
@@ -72,12 +72,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
         credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           email: args.email,
-          password: args.password,
-        }),
+          password: args.password
+        })
       })
 
       if (res.ok) {
@@ -100,8 +100,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
         credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
       })
 
       if (res.ok) {
@@ -122,8 +122,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           method: 'GET',
           credentials: 'include',
           headers: {
-            'Content-Type': 'application/json',
-          },
+            'Content-Type': 'application/json'
+          }
         })
 
         if (res.ok) {
@@ -148,11 +148,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
         credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          email: args.email,
-        }),
+          email: args.email
+        })
       })
 
       if (res.ok) {
@@ -173,13 +173,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method: 'POST',
         credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           password: args.password,
           passwordConfirm: args.passwordConfirm,
-          token: args.token,
-        }),
+          token: args.token
+        })
       })
 
       if (res.ok) {
@@ -205,7 +205,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         create,
         resetPassword,
         forgotPassword,
-        status,
+        status
       }}
     >
       {children}

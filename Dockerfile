@@ -18,7 +18,7 @@ RUN yarn build
 FROM base as runtime
 
 ENV NODE_ENV=production
-ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
+ENV PAYLOAD_CONFIG_PATH=dist/payload/payload.config.js
 
 WORKDIR /home/node/app
 COPY package*.json  ./
@@ -30,4 +30,5 @@ COPY --from=builder /home/node/app/build ./build
 
 EXPOSE 3000
 
-CMD ["node", "dist/server.js"]
+# Use shell form of CMD to allow variable expansion and command chaining
+CMD NODE_ENV=production PAYLOAD_CONFIG_PATH=dist/payload/payload.config.js node dist/server.js

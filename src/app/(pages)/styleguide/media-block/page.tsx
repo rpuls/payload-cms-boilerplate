@@ -39,6 +39,6 @@ export const metadata: Metadata = {
   description: 'Styleguide for media block.',
   openGraph: mergeOpenGraph({
     title: 'Media Block',
-    url: '/styleguide/media-block',
-  }),
+    url: '/styleguide/media-block'
+  })
 }

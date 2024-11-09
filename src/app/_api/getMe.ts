@@ -20,16 +20,16 @@ export const getMe = async (args?: {
     method: 'POST',
     headers: {
       Authorization: `JWT ${token}`,
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     cache: 'no-store',
     body: JSON.stringify({
-      query: ME_QUERY,
-    }),
+      query: ME_QUERY
+    })
   })
 
   const {
-    user,
+    user
   }: {
     user: User
   } = await meUserReq.json()
@@ -44,6 +44,6 @@ export const getMe = async (args?: {
 
   return {
     user,
-    token,
+    token
   }
 }

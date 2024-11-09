@@ -8,7 +8,7 @@ const richTextLargeBody: RichTextCustomElement = {
   name: 'large-body',
   Button,
   Element,
-  plugins: [withLargeBody],
+  plugins: [withLargeBody]
 }
 
 export default richTextLargeBody

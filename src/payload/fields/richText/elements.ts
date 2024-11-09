@@ -12,7 +12,7 @@ const elements: RichTextElement[] = [
   'h6',
   'link',
   largeBody,
-  label,
+  label
 ]
 
 export default elements

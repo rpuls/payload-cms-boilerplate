@@ -21,7 +21,7 @@ export const RecoverPasswordForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<FormData>()
 
   const onSubmit = useCallback(async (data: FormData) => {
@@ -31,9 +31,9 @@ export const RecoverPasswordForm: React.FC = () => {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json',
-        },
-      },
+          'Content-Type': 'application/json'
+        }
+      }
     )
 
     if (response.ok) {
@@ -41,7 +41,7 @@ export const RecoverPasswordForm: React.FC = () => {
       setError('')
     } else {
       setError(
-        'There was a problem while attempting to send you a password reset email. Please try again.',
+        'There was a problem while attempting to send you a password reset email. Please try again.'
       )
     }
   }, [])

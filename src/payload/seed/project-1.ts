@@ -6,7 +6,7 @@ export const project1: Partial<Project> = {
   meta: {
     title: 'Project 1',
     description: 'This is the first project.',
-    image: '{{IMAGE}}',
+    image: '{{IMAGE}}'
   },
   hero: {
     type: 'lowImpact',
@@ -15,13 +15,13 @@ export const project1: Partial<Project> = {
       {
         children: [
           {
-            text: 'Project 1',
-          },
+            text: 'Project 1'
+          }
         ],
-        type: 'h1',
-      },
+        type: 'h1'
+      }
     ],
-    media: null,
+    media: null
   },
   layout: [
     {
@@ -33,19 +33,19 @@ export const project1: Partial<Project> = {
             {
               children: [
                 {
-                  text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components.",
-                },
-              ],
-            },
+                  text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components."
+                }
+              ]
+            }
           ],
           link: {
             reference: null,
             url: '',
-            label: '',
-          },
-        },
-      ],
-    },
+            label: ''
+          }
+        }
+      ]
+    }
   ],
-  relatedProjects: [], // this is populated by the seed script
+  relatedProjects: [] // this is populated by the seed script
 }

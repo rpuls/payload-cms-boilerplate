@@ -10,16 +10,16 @@ import { payloadToken } from './token'
 const queryMap = {
   pages: {
     query: PAGE,
-    key: 'Pages',
+    key: 'Pages'
   },
   posts: {
     query: POST,
-    key: 'Posts',
+    key: 'Posts'
   },
   projects: {
     query: PROJECT,
-    key: 'Projects',
-  },
+    key: 'Projects'
+  }
 }
 
 export const fetchDoc = async <T>(args: {
@@ -43,7 +43,7 @@ export const fetchDoc = async <T>(args: {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      ...(token?.value && draft ? { Authorization: `JWT ${token.value}` } : {}),
+      ...(token?.value && draft ? { Authorization: `JWT ${token.value}` } : {})
     },
     cache: 'no-store',
     next: { tags: [`${collection}_${slug}`] },
@@ -51,9 +51,9 @@ export const fetchDoc = async <T>(args: {
       query: queryMap[collection].query,
       variables: {
         slug,
-        draft,
-      },
-    }),
+        draft
+      }
+    })
   })
     ?.then(res => res.json())
     ?.then(res => {

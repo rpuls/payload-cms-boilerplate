@@ -17,7 +17,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   archive: ArchiveBlock,
   relatedPosts: RelatedPosts,
-  comments: CommentsBlock,
+  comments: CommentsBlock
 }
 
 export const Blocks: React.FC<{

@@ -6,29 +6,29 @@ export const FormBlock: Block = {
   slug: 'formBlock',
   labels: {
     singular: 'Form Block',
-    plural: 'Form Blocks',
+    plural: 'Form Blocks'
   },
   graphQL: {
-    singularName: 'FormBlock',
+    singularName: 'FormBlock'
   },
   fields: [
     {
       name: 'form',
       type: 'relationship',
       relationTo: 'forms',
-      required: true,
+      required: true
     },
     {
       name: 'enableIntro',
       label: 'Enable Intro Content',
-      type: 'checkbox',
+      type: 'checkbox'
     },
     richText({
       name: 'introContent',
       label: 'Intro Content',
       admin: {
-        condition: (_, { enableIntro }) => Boolean(enableIntro),
-      },
-    }),
-  ],
+        condition: (_, { enableIntro }) => Boolean(enableIntro)
+      }
+    })
+  ]
 }

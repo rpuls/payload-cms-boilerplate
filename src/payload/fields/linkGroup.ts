@@ -16,9 +16,9 @@ const linkGroup: LinkGroupType = ({ overrides = {}, appearances } = {}) => {
     type: 'array',
     fields: [
       link({
-        appearances,
-      }),
-    ],
+        appearances
+      })
+    ]
   }
 
   return deepMerge(generatedLinkGroup, overrides)

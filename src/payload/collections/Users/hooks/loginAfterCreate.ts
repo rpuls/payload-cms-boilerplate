@@ -4,7 +4,7 @@ export const loginAfterCreate: AfterChangeHook = async ({
   doc,
   req,
   req: { payload, body = {}, res },
-  operation,
+  operation
 }) => {
   if (operation === 'create' && !req.user) {
     const { email, password } = body
@@ -14,13 +14,13 @@ export const loginAfterCreate: AfterChangeHook = async ({
         collection: 'users',
         data: { email, password },
         req,
-        res,
+        res
       })
 
       return {
         ...doc,
         token,
-        user,
+        user
       }
     }
   }

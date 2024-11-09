@@ -39,14 +39,14 @@ export const PremiumContent: React.FC<{
           method: 'POST',
           credentials: 'include',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             query: POST_PREMIUM_CONTENT,
             variables: {
-              slug: postSlug,
-            },
-          }),
+              slug: postSlug
+            }
+          })
         })
           ?.then(res => res.json())
           ?.then(res => res?.data?.Posts.docs[0]?.premiumContent)

@@ -21,7 +21,7 @@ export const SeedButton: React.FC = () => {
         }
       }, 1000)
     },
-    [loading, seeded],
+    [loading, seeded]
   )
 
   let message = ''

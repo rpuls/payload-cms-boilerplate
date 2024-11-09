@@ -49,6 +49,6 @@ export const metadata: Metadata = {
   description: 'Styleguide for typography.',
   openGraph: mergeOpenGraph({
     title: 'Typography',
-    url: '/styleguide/typography',
-  }),
+    url: '/styleguide/typography'
+  })
 }

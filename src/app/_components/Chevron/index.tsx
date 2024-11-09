@@ -12,7 +12,7 @@ export const Chevron: React.FC<{
       viewBox="0 0 24 24"
       className={className}
       style={{
-        transform: typeof rotate === 'number' ? `rotate(${rotate || 0}deg)` : undefined,
+        transform: typeof rotate === 'number' ? `rotate(${rotate || 0}deg)` : undefined
       }}
     >
       <path

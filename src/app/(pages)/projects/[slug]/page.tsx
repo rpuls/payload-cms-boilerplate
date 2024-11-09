@@ -24,7 +24,7 @@ export default async function Project({ params: { slug } }) {
     project = await fetchDoc<Project>({
       collection: 'projects',
       slug,
-      draft: isDraftMode,
+      draft: isDraftMode
     })
   } catch (error) {
     console.error(error) // eslint-disable-line no-console
@@ -51,33 +51,33 @@ export default async function Project({ params: { slug } }) {
                 type: 'h4',
                 children: [
                   {
-                    text: 'Related projects',
-                  },
-                ],
+                    text: 'Related projects'
+                  }
+                ]
               },
               {
                 type: 'p',
                 children: [
                   {
-                    text: 'The projects displayed here are individually selected for this page. Admins can select any number of related projects to display here and the layout will adjust accordingly. Alternatively, you could swap this out for the "Archive" block to automatically populate projects by category complete with pagination. To manage related projects, ',
+                    text: 'The projects displayed here are individually selected for this page. Admins can select any number of related projects to display here and the layout will adjust accordingly. Alternatively, you could swap this out for the "Archive" block to automatically populate projects by category complete with pagination. To manage related projects, '
                   },
                   {
                     type: 'link',
                     url: `/admin/collections/projects/${project.id}`,
                     children: [
                       {
-                        text: 'navigate to the admin dashboard',
-                      },
-                    ],
+                        text: 'navigate to the admin dashboard'
+                      }
+                    ]
                   },
                   {
-                    text: '.',
-                  },
-                ],
-              },
+                    text: '.'
+                  }
+                ]
+              }
             ],
-            docs: relatedProjects,
-          },
+            docs: relatedProjects
+          }
         ]}
       />
     </React.Fragment>
@@ -102,7 +102,7 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata> 
     project = await fetchDoc<Project>({
       collection: 'projects',
       slug,
-      draft: isDraftMode,
+      draft: isDraftMode
     })
   } catch (error) {}
 

@@ -29,7 +29,7 @@ const AccountForm: React.FC = () => {
     handleSubmit,
     formState: { errors, isLoading },
     reset,
-    watch,
+    watch
   } = useForm<FormData>()
 
   const password = useRef({})
@@ -46,8 +46,8 @@ const AccountForm: React.FC = () => {
           method: 'PATCH',
           body: JSON.stringify(data),
           headers: {
-            'Content-Type': 'application/json',
-          },
+            'Content-Type': 'application/json'
+          }
         })
 
         if (response.ok) {
@@ -60,22 +60,22 @@ const AccountForm: React.FC = () => {
             email: json.doc.email,
             name: json.doc.name,
             password: '',
-            passwordConfirm: '',
+            passwordConfirm: ''
           })
         } else {
           setError('There was a problem updating your account.')
         }
       }
     },
-    [user, setUser, reset],
+    [user, setUser, reset]
   )
 
   useEffect(() => {
     if (user === null) {
       router.push(
         `/login?error=${encodeURIComponent(
-          'You must be logged in to view this page.',
-        )}&redirect=${encodeURIComponent('/account')}`,
+          'You must be logged in to view this page.'
+        )}&redirect=${encodeURIComponent('/account')}`
       )
     }
 
@@ -85,7 +85,7 @@ const AccountForm: React.FC = () => {
         email: user.email,
         name: user.name,
         password: '',
-        passwordConfirm: '',
+        passwordConfirm: ''
       })
     }
   }, [user, router, reset, changePassword])

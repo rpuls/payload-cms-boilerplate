@@ -6,12 +6,12 @@ export const Archive: Block = {
   slug: 'archive',
   labels: {
     singular: 'Archive',
-    plural: 'Archives',
+    plural: 'Archives'
   },
   fields: [
     richText({
       name: 'introContent',
-      label: 'Intro Content',
+      label: 'Intro Content'
     }),
     {
       name: 'populateBy',
@@ -20,13 +20,13 @@ export const Archive: Block = {
       options: [
         {
           label: 'Collection',
-          value: 'collection',
+          value: 'collection'
         },
         {
           label: 'Individual Selection',
-          value: 'selection',
-        },
-      ],
+          value: 'selection'
+        }
+      ]
     },
     {
       type: 'select',
@@ -34,18 +34,18 @@ export const Archive: Block = {
       label: 'Collections To Show',
       defaultValue: 'posts',
       admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
+        condition: (_, siblingData) => siblingData.populateBy === 'collection'
       },
       options: [
         {
           label: 'Posts',
-          value: 'posts',
+          value: 'posts'
         },
         {
           label: 'Projects',
-          value: 'projects',
-        },
-      ],
+          value: 'projects'
+        }
+      ]
     },
     {
       type: 'relationship',
@@ -54,8 +54,8 @@ export const Archive: Block = {
       relationTo: 'categories',
       hasMany: true,
       admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
+        condition: (_, siblingData) => siblingData.populateBy === 'collection'
+      }
     },
     {
       type: 'number',
@@ -64,8 +64,8 @@ export const Archive: Block = {
       defaultValue: 10,
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
-        step: 1,
-      },
+        step: 1
+      }
     },
     {
       type: 'relationship',
@@ -74,8 +74,8 @@ export const Archive: Block = {
       relationTo: ['posts', 'projects'],
       hasMany: true,
       admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'selection',
-      },
+        condition: (_, siblingData) => siblingData.populateBy === 'selection'
+      }
     },
     {
       type: 'relationship',
@@ -86,8 +86,8 @@ export const Archive: Block = {
       admin: {
         disabled: true,
         description: 'This field is auto-populated after-read',
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
+        condition: (_, siblingData) => siblingData.populateBy === 'collection'
+      }
     },
     {
       type: 'number',
@@ -97,8 +97,8 @@ export const Archive: Block = {
         step: 1,
         disabled: true,
         description: 'This field is auto-populated after-read',
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
-    },
-  ],
+        condition: (_, siblingData) => siblingData.populateBy === 'collection'
+      }
+    }
+  ]
 }

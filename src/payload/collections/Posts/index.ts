@@ -20,29 +20,29 @@ export const Posts: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     preview: doc => {
       return `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/next/preview?url=${encodeURIComponent(
-        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/posts/${doc?.slug}`,
+        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/posts/${doc?.slug}`
       )}&secret=${process.env.PAYLOAD_PUBLIC_DRAFT_SECRET}`
-    },
+    }
   },
   hooks: {
     beforeChange: [populatePublishedAt],
     afterChange: [revalidatePost],
-    afterRead: [populateArchiveBlock, populateAuthors],
+    afterRead: [populateArchiveBlock, populateAuthors]
   },
   versions: {
-    drafts: true,
+    drafts: true
   },
   access: {
     read: adminsOrPublished,
     update: admins,
     create: admins,
-    delete: admins,
+    delete: admins
   },
   fields: [
     {
       name: 'title',
       type: 'text',
-      required: true,
+      required: true
     },
     {
       name: 'categories',
@@ -50,8 +50,8 @@ export const Posts: CollectionConfig = {
       relationTo: 'categories',
       hasMany: true,
       admin: {
-        position: 'sidebar',
-      },
+        position: 'sidebar'
+      }
     },
     {
       name: 'publishedAt',
@@ -59,8 +59,8 @@ export const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
         date: {
-          pickerAppearance: 'dayAndTime',
-        },
+          pickerAppearance: 'dayAndTime'
+        }
       },
       hooks: {
         beforeChange: [
@@ -69,9 +69,9 @@ export const Posts: CollectionConfig = {
               return new Date()
             }
             return value
-          },
-        ],
-      },
+          }
+        ]
+      }
     },
     {
       name: 'authors',
@@ -79,8 +79,8 @@ export const Posts: CollectionConfig = {
       relationTo: 'users',
       hasMany: true,
       admin: {
-        position: 'sidebar',
-      },
+        position: 'sidebar'
+      }
     },
     // This field is only used to populate the user data via the `populateAuthors` hook
     // This is because the `user` collection has access control locked to protect user privacy
@@ -90,28 +90,28 @@ export const Posts: CollectionConfig = {
       type: 'array',
       admin: {
         readOnly: true,
-        disabled: true,
+        disabled: true
       },
       access: {
-        update: () => false,
+        update: () => false
       },
       fields: [
         {
           name: 'id',
-          type: 'text',
+          type: 'text'
         },
         {
           name: 'name',
-          type: 'text',
-        },
-      ],
+          type: 'text'
+        }
+      ]
     },
     {
       type: 'tabs',
       tabs: [
         {
           label: 'Hero',
-          fields: [hero],
+          fields: [hero]
         },
         {
           label: 'Content',
@@ -120,24 +120,24 @@ export const Posts: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
+              blocks: [CallToAction, Content, MediaBlock, Archive]
             },
             {
               name: 'enablePremiumContent',
               label: 'Enable Premium Content',
-              type: 'checkbox',
+              type: 'checkbox'
             },
             {
               name: 'premiumContent',
               type: 'blocks',
               access: {
-                read: ({ req }) => req.user,
+                read: ({ req }) => req.user
               },
-              blocks: [CallToAction, Content, MediaBlock, Archive],
-            },
-          ],
-        },
-      ],
+              blocks: [CallToAction, Content, MediaBlock, Archive]
+            }
+          ]
+        }
+      ]
     },
     {
       name: 'relatedPosts',
@@ -147,11 +147,11 @@ export const Posts: CollectionConfig = {
       filterOptions: ({ id }) => {
         return {
           id: {
-            not_in: [id],
-          },
+            not_in: [id]
+          }
         }
-      },
+      }
     },
-    slugField(),
-  ],
+    slugField()
+  ]
 }

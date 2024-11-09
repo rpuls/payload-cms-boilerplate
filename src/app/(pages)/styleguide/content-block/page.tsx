@@ -26,10 +26,10 @@ export default async function ContentBlockPage() {
               size: 'full',
               richText: [
                 {
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                },
-              ],
-            },
+                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                }
+              ]
+            }
           ]}
         />
       </VerticalPadding>
@@ -42,6 +42,6 @@ export const metadata: Metadata = {
   description: 'Styleguide for the Content Block',
   openGraph: mergeOpenGraph({
     title: 'Content Block',
-    url: '/styleguide/content-block',
-  }),
+    url: '/styleguide/content-block'
+  })
 }
