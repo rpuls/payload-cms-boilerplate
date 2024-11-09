@@ -14,7 +14,6 @@ ENV DATABASE_URI=$DATABASE_URI
 COPY . .
 RUN yarn install
 RUN yarn build
-RUN ls -l dist # Verify that dist/payload.config.js is generated
 
 FROM base as runtime
 
