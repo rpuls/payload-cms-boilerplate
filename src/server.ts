@@ -1,15 +1,8 @@
-import dotenv from 'dotenv'
 import next from 'next'
 import nextBuild from 'next/dist/build'
 import path from 'path'
-
-dotenv.config({
-  path: path.resolve(__dirname, '../.env'),
-})
-
 import express from 'express'
 import payload from 'payload'
-
 import { seed } from './payload/seed'
 
 const app = express()
