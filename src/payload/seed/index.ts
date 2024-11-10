@@ -5,9 +5,12 @@ import type { Payload } from 'payload'
 import { home } from './home'
 import { image1 } from './image-1'
 import { image2 } from './image-2'
+import { image3 } from './image-3'
+import { image4 } from './image-4'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+import { post4 } from './post-4'
 import { postsPage } from './posts-page'
 import { project1 } from './project-1'
 import { project2 } from './project-2'
@@ -92,16 +95,26 @@ export const seed = async (payload: Payload): Promise<void> => {
 
   payload.logger.info(`— Seeding media...`)
 
-  const [image1Doc, image2Doc] = await Promise.all([
+  const [image1Doc, image2Doc, image3Doc, image4Doc] = await Promise.all([
     await payload.create({
       collection: 'media',
-      filePath: path.resolve(__dirname, 'image-1.jpg'),
+      filePath: path.resolve(__dirname, 'payload-cover.png'),
       data: image1
     }),
     await payload.create({
       collection: 'media',
-      filePath: path.resolve(__dirname, 'image-2.jpg'),
-      data: image2
+      filePath: path.resolve(__dirname, 'payload-2-cover.png'),
+      data: image1
+    }),
+    await payload.create({
+      collection: 'media',
+      filePath: path.resolve(__dirname, 'Medusa-2.0-official-release-deploy-on-railway-cover.jpg'),
+      data: image3
+    }),
+    await payload.create({
+      collection: 'media',
+      filePath: path.resolve(__dirname, 'Vendure-cover.png'),
+      data: image4
     })
   ])
 
@@ -110,7 +123,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   const [
     technologyCategory,
     newsCategory,
-    financeCategory,
+    eCommerceCategory,
     designCat,
     softwareCat,
     engineeringCat
@@ -130,7 +143,7 @@ export const seed = async (payload: Payload): Promise<void> => {
     await payload.create({
       collection: 'categories',
       data: {
-        title: 'Finance'
+        title: 'e-commerce'
       }
     }),
     await payload.create({
@@ -155,6 +168,8 @@ export const seed = async (payload: Payload): Promise<void> => {
 
   let image1ID = image1Doc.id
   let image2ID = image2Doc.id
+  let image3ID = image3Doc.id
+  let image4ID = image4Doc.id
 
   if (payload.db.defaultIDType === 'text') {
     image1ID = `"${image1Doc.id}"`
@@ -179,7 +194,7 @@ export const seed = async (payload: Payload): Promise<void> => {
     collection: 'posts',
     data: JSON.parse(
       JSON.stringify({ ...post2, categories: [newsCategory.id] })
-        .replace(/"\{\{IMAGE\}\}"/g, image1ID)
+        .replace(/"\{\{IMAGE\}\}"/g, image2ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
     )
   })
@@ -187,13 +202,22 @@ export const seed = async (payload: Payload): Promise<void> => {
   const post3Doc = await payload.create({
     collection: 'posts',
     data: JSON.parse(
-      JSON.stringify({ ...post3, categories: [financeCategory.id] })
-        .replace(/"\{\{IMAGE\}\}"/g, image1ID)
+      JSON.stringify({ ...post3, categories: [eCommerceCategory.id] })
+        .replace(/"\{\{IMAGE\}\}"/g, image3ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
     )
   })
 
-  const posts = [post1Doc, post2Doc, post3Doc]
+  const post4Doc = await payload.create({
+    collection: 'posts',
+    data: JSON.parse(
+      JSON.stringify({ ...post4, categories: [eCommerceCategory.id] })
+        .replace(/"\{\{IMAGE\}\}"/g, image4ID)
+        .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
+    )
+  })
+
+  const posts = [post1Doc, post2Doc, post3Doc, post4Doc]
 
   // update each post with related posts
 
