@@ -4,7 +4,6 @@ import type { Payload } from 'payload'
 
 import { home } from './home'
 import { image1 } from './image-1'
-import { image2 } from './image-2'
 import { image3 } from './image-3'
 import { image4 } from './image-4'
 import { post1 } from './post-1'
