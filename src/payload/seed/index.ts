@@ -8,6 +8,7 @@ import { image2 } from './image-2'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+// import { post4 } from './post-4'
 import { postsPage } from './posts-page'
 import { project1 } from './project-1'
 import { project2 } from './project-2'
@@ -193,7 +194,16 @@ export const seed = async (payload: Payload): Promise<void> => {
     )
   })
 
-  const posts = [post1Doc, post2Doc, post3Doc]
+  // const post4Doc = await payload.create({
+  //   collection: 'posts',
+  //   data: JSON.parse(
+  //     JSON.stringify({ ...post4, categories: [technologyCategory.id] })
+  //       .replace(/"\{\{IMAGE\}\}"/g, image1ID)
+  //       .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
+  //   )
+  // })
+
+  const posts = [post1Doc, post2Doc, post3Doc /*, post4Doc*/]
 
   // update each post with related posts
 
@@ -202,23 +212,30 @@ export const seed = async (payload: Payload): Promise<void> => {
       collection: 'posts',
       id: post1Doc.id,
       data: {
-        relatedPosts: [post2Doc.id, post3Doc.id]
+        relatedPosts: [post2Doc.id, post3Doc.id, post1Doc.id]
       }
     }),
     await payload.update({
       collection: 'posts',
       id: post2Doc.id,
       data: {
-        relatedPosts: [post1Doc.id, post3Doc.id]
+        relatedPosts: [post1Doc.id, post3Doc.id, post2Doc.id]
       }
     }),
     await payload.update({
       collection: 'posts',
       id: post3Doc.id,
       data: {
-        relatedPosts: [post1Doc.id, post2Doc.id]
+        relatedPosts: [post1Doc.id, post2Doc.id, post3Doc.id]
       }
     })
+    // await payload.update({
+    //   collection: 'posts',
+    //   id: post4Doc.id,
+    //   data: {
+    //     relatedPosts: [post1Doc.id, post2Doc.id, post3Doc.id]
+    //   }
+    // })
   ])
 
   payload.logger.info(`— Seeding comments...`)

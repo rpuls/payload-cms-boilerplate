@@ -1,22 +1,22 @@
 import type { Post } from '../payload-types'
+
 export const post1: Partial<Post> = {
-  title: 'Post 1',
-  slug: 'post-1',
+  title: 'Exploring the Power of Payload CMS',
+  slug: 'exploring-payload-cms',
   _status: 'published',
   meta: {
-    title: 'Post 1',
-    description: 'This is the first post.',
-    image: '{{IMAGE}}'
+    title: 'Exploring the Power of Payload CMS',
+    description:
+      'Discover the features and flexibility of Payload CMS for building modern websites.'
   },
   authors: ['{{AUTHOR}}'],
   hero: {
-    type: 'lowImpact',
-    links: null,
+    type: 'highImpact',
     richText: [
       {
         children: [
           {
-            text: 'Post 1'
+            text: 'Exploring the Power of Payload CMS'
           }
         ],
         type: 'h1'
@@ -34,7 +34,67 @@ export const post1: Partial<Post> = {
             {
               children: [
                 {
-                  text: "This content is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components."
+                  text: "Payload CMS is a powerful and flexible content management system that empowers developers to build robust and scalable websites. In this post, we'll explore some of its key features and benefits."
+                }
+              ]
+            },
+            {
+              type: 'h2',
+              children: [
+                {
+                  text: 'Key Features'
+                }
+              ]
+            },
+            {
+              type: 'ul',
+              children: [
+                {
+                  type: 'li',
+                  children: [
+                    {
+                      text: 'Headless Architecture'
+                    }
+                  ]
+                },
+                {
+                  type: 'li',
+                  children: [
+                    {
+                      text: 'TypeScript Support'
+                    }
+                  ]
+                },
+                {
+                  type: 'li',
+                  children: [
+                    {
+                      text: 'Customizable Admin UI'
+                    }
+                  ]
+                },
+                {
+                  type: 'li',
+                  children: [
+                    {
+                      text: 'Powerful Access Control'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              type: 'h2',
+              children: [
+                {
+                  text: 'Why Choose Payload CMS?'
+                }
+              ]
+            },
+            {
+              children: [
+                {
+                  text: 'Payload CMS offers a unique combination of flexibility and ease of use. Its headless architecture allows you to use any front-end technology you prefer, while its powerful admin UI makes content management a breeze.'
                 }
               ]
             }
@@ -54,16 +114,20 @@ export const post1: Partial<Post> = {
       blockType: 'content',
       columns: [
         {
-          size: 'twoThirds',
+          size: 'full',
           richText: [
+            {
+              type: 'h2',
+              children: [
+                {
+                  text: 'Advanced Payload CMS Techniques'
+                }
+              ]
+            },
             {
               children: [
                 {
-                  text: 'This is premium content.',
-                  bold: true
-                },
-                {
-                  text: ' It is only available to authenticated users. This content can be anything from additional video, text, and content, to download links and more. These are simply layout building blocks configured in the CMS.'
+                  text: "In this premium section, we'll dive deeper into advanced Payload CMS techniques, including custom field types, hooks, and API customization. These insights will help you leverage the full power of Payload CMS in your projects."
                 }
               ]
             }

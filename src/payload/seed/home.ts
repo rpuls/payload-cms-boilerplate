@@ -5,8 +5,9 @@ export const home: Partial<Page> = {
   slug: 'home',
   _status: 'published',
   meta: {
-    title: 'Payload Website Template',
-    description: 'An open-source website built with Payload and Next.js.',
+    title: 'Payload CMS Website Template',
+    description:
+      'A powerful, flexible, and production-ready Payload CMS website template with PostgreSQL support.',
     image: '{{IMAGE_1}}'
   },
   hero: {
@@ -15,7 +16,7 @@ export const home: Partial<Page> = {
       {
         children: [
           {
-            text: 'Payload Website Template'
+            text: 'Payload CMS Website Template'
           }
         ],
         type: 'h1'
@@ -23,34 +24,7 @@ export const home: Partial<Page> = {
       {
         children: [
           {
-            text: 'Welcome to your website! '
-          },
-          {
-            type: 'link',
-            linkType: 'custom',
-            url: '/admin',
-            children: [
-              {
-                text: 'Visit the admin dashboard'
-              }
-            ]
-          },
-          {
-            text: " to begin managing this site's content. The code for this template is completely open-source and can be found "
-          },
-          {
-            type: 'link',
-            linkType: 'custom',
-            url: 'https://github.com/payloadcms/payload/tree/main/templates/website',
-            newTab: true,
-            children: [
-              {
-                text: 'here'
-              }
-            ]
-          },
-          {
-            text: '.'
+            text: 'Welcome to your Payload CMS powered website! This template offers a range of features including authentication, premium content, comments, and more. Explore our latest posts to learn about Payload CMS, Medusa.js, and Vendure.'
           }
         ],
         type: 'large-body'
@@ -65,7 +39,7 @@ export const home: Partial<Page> = {
             relationTo: 'pages',
             value: '{{POSTS_PAGE_ID}}'
           },
-          label: 'All posts',
+          label: 'Explore Posts',
           url: ''
         }
       },
@@ -77,12 +51,12 @@ export const home: Partial<Page> = {
             relationTo: 'pages',
             value: '{{PROJECTS_PAGE_ID}}'
           },
-          label: 'All projects',
+          label: 'View Projects',
           url: ''
         }
       }
     ],
-    media: '{{IMAGE_1}}'
+    media: null
   },
   layout: [
     {
@@ -95,27 +69,20 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Core features'
+                  text: 'Featured Content'
                 }
               ],
               type: 'h2'
-            },
-            {
-              children: [
-                {
-                  text: ''
-                }
-              ]
             }
           ]
         },
         {
-          size: 'oneThird',
+          size: 'half',
           richText: [
             {
               children: [
                 {
-                  text: 'Admin Dashboard'
+                  text: 'Payload CMS'
                 }
               ],
               type: 'h3'
@@ -123,38 +90,28 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: "Manage this site's pages, posts, projects and more from the "
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/admin',
-                  children: [
-                    {
-                      text: 'admin dashboard'
-                    }
-                  ]
-                },
-                {
-                  text: '.'
+                  text: 'Discover the power and flexibility of Payload CMS for building modern websites. Learn about its key features and how to get started.'
                 }
               ]
             }
           ],
-          enableLink: false,
+          enableLink: true,
           link: {
-            reference: null,
-            url: '',
-            label: ''
+            type: 'reference',
+            reference: {
+              relationTo: 'pages',
+              value: '{{POST_1_ID}}'
+            },
+            label: 'Read More'
           }
         },
         {
-          size: 'oneThird',
+          size: 'half',
           richText: [
             {
               children: [
                 {
-                  text: 'Authentication'
+                  text: 'Medusa.js 2.0'
                 }
               ],
               type: 'h3'
@@ -162,264 +119,19 @@ export const home: Partial<Page> = {
             {
               children: [
                 {
-                  text: 'Complete user '
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/login',
-                  children: [
-                    {
-                      text: 'login'
-                    }
-                  ]
-                },
-                {
-                  text: ' and '
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/create-account',
-                  children: [
-                    {
-                      text: 'create account'
-                    }
-                  ]
-                },
-                {
-                  text: ' flows with email verification and password reset.'
+                  text: "Explore the latest features of Medusa.js 2.0 and how it's revolutionizing e-commerce development. Learn about its new admin dashboard, enhanced inventory management, and more."
                 }
               ]
             }
           ],
-          enableLink: false,
+          enableLink: true,
           link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Preview'
-                }
-              ],
-              type: 'h3'
+            type: 'reference',
+            reference: {
+              relationTo: 'pages',
+              value: '{{POST_3_ID}}'
             },
-            {
-              children: [
-                {
-                  text: 'Using versions, drafts, and preview, editors can review and share their changes before publishing them.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Comments'
-                }
-              ],
-              type: 'h3'
-            },
-            {
-              children: [
-                {
-                  text: 'Users can comment on posts and editors can moderate comments directly from the '
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/admin/collections/comments',
-                  children: [
-                    {
-                      text: 'admin dashboard'
-                    }
-                  ]
-                },
-                {
-                  text: '.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'User Accounts'
-                }
-              ],
-              type: 'h3'
-            },
-            {
-              children: [
-                {
-                  text: 'Users can '
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/account',
-                  children: [
-                    {
-                      text: 'manage their account'
-                    }
-                  ]
-                },
-                {
-                  text: ', view their comment history, and more without leaving the site.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Premium Content'
-                }
-              ],
-              type: 'h3'
-            },
-            {
-              children: [
-                {
-                  text: 'Easily restrict access to premium content to only authenticated members of your site.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Page Builder'
-                }
-              ],
-              type: 'h3'
-            },
-            {
-              children: [
-                {
-                  text: 'Custom page builder allows you to create unique page, post, and project layouts for any type of content.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'SEO'
-                }
-              ],
-              type: 'h3'
-            },
-            {
-              children: [
-                {
-                  text: 'Editors have complete control over SEO data and site content directly from the '
-                },
-                {
-                  type: 'link',
-                  linkType: 'custom',
-                  url: '/admin',
-                  children: [
-                    {
-                      text: 'admin dashboard'
-                    }
-                  ]
-                },
-                {
-                  text: '.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
-          }
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Dark Mode'
-                }
-              ],
-              type: 'h3'
-            },
-            {
-              children: [
-                {
-                  text: 'Users will experience this site in their preferred color scheme and each block can be inverted.'
-                }
-              ]
-            }
-          ],
-          enableLink: false,
-          link: {
-            reference: null,
-            url: '',
-            label: ''
+            label: 'Read More'
           }
         }
       ]
@@ -438,7 +150,7 @@ export const home: Partial<Page> = {
           type: 'h4',
           children: [
             {
-              text: 'Recent posts'
+              text: 'Latest Posts'
             }
           ]
         },
@@ -446,38 +158,14 @@ export const home: Partial<Page> = {
           type: 'p',
           children: [
             {
-              text: 'The posts below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection or by category, or posts can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.'
+              text: 'Explore our latest articles on Payload CMS, Medusa.js, and Vendure. Learn about these powerful tools and how they can enhance your web development projects.'
             }
           ]
         }
       ],
       populateBy: 'collection',
       relationTo: 'posts',
-      categories: []
-    },
-    {
-      blockName: 'Archive Block',
-      blockType: 'archive',
-      introContent: [
-        {
-          type: 'h4',
-          children: [
-            {
-              text: 'Recent projects'
-            }
-          ]
-        },
-        {
-          type: 'p',
-          children: [
-            {
-              text: 'The projects below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection or by category, or projects can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.'
-            }
-          ]
-        }
-      ],
-      populateBy: 'collection',
-      relationTo: 'projects',
+      limit: 4,
       categories: []
     },
     {
@@ -487,7 +175,7 @@ export const home: Partial<Page> = {
         {
           children: [
             {
-              text: 'This is a call to action'
+              text: 'Ready to build your next project?'
             }
           ],
           type: 'h4'
@@ -495,20 +183,7 @@ export const home: Partial<Page> = {
         {
           children: [
             {
-              text: 'This is a custom layout building block '
-            },
-            {
-              type: 'link',
-              linkType: 'custom',
-              url: '/admin',
-              children: [
-                {
-                  text: 'configured in the admin dashboard'
-                }
-              ]
-            },
-            {
-              text: '.'
+              text: 'Get started with Payload CMS today and create powerful, flexible websites with ease.'
             }
           ]
         }
@@ -516,26 +191,18 @@ export const home: Partial<Page> = {
       links: [
         {
           link: {
-            type: 'reference',
-            url: '',
-            label: 'All posts',
-            appearance: 'primary',
-            reference: {
-              value: '{{POSTS_PAGE_ID}}',
-              relationTo: 'pages'
-            }
+            type: 'custom',
+            url: 'https://github.com/rpuls/payload-cms-boilerplate',
+            label: 'View on GitHub',
+            appearance: 'primary'
           }
         },
         {
           link: {
-            type: 'reference',
-            url: '',
-            label: 'All projects',
-            appearance: 'secondary',
-            reference: {
-              value: '{{PROJECTS_PAGE_ID}}',
-              relationTo: 'pages'
-            }
+            type: 'custom',
+            url: 'https://funkyton.com/payload-cms/',
+            label: 'Read Tutorial',
+            appearance: 'secondary'
           }
         }
       ]
