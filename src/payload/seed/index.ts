@@ -112,7 +112,7 @@ export const seed = async (payload: Payload): Promise<void> => {
     }),
     await payload.create({
       collection: 'media',
-      filePath: path.resolve(__dirname, 'Vendure-cover.png'),
+      filePath: path.resolve(__dirname, 'vendure-cover.png'),
       data: image4
     })
   ])
