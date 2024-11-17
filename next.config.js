@@ -8,7 +8,7 @@ const nextConfig = {
   images: {
     domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL]
       .filter(Boolean)
-      .map(url => url.replace(/https?:\/\//, '')),
+      .map(url => url.replace(/https?:\/\//, ''))
   },
   redirects,
   async headers() {
@@ -23,10 +23,10 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Robots-Tag',
-            value: 'noindex',
-          },
+            value: 'noindex'
+          }
         ],
-        source: '/:path*',
+        source: '/:path*'
       })
     }
 
@@ -38,13 +38,17 @@ const nextConfig = {
       headers: [
         {
           key: 'Content-Security-Policy',
-          value: ContentSecurityPolicy,
-        },
-      ],
+          value: ContentSecurityPolicy
+        }
+      ]
     })
 
     return headers
-  },
+  }
 }
+
+console.log('********************************')
+console.log(JSON.stringify(nextConfig, null, 2))
+console.log('********************************')
 
 module.exports = nextConfig

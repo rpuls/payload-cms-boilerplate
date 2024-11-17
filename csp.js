@@ -3,11 +3,19 @@ const policies = {
   'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://maps.googleapis.com'],
   'child-src': ["'self'"],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-  'img-src': ["'self'", 'https://raw.githubusercontent.com'],
+  'img-src': [
+    "'self'",
+    'https://raw.githubusercontent.com',
+    process.env.NEXT_PUBLIC_SERVER_URL?.replace(/https?:\/\//, '') || '' // Allow dynamic domain
+  ],
   'font-src': ["'self'"],
   'frame-src': ["'self'"],
-  'connect-src': ["'self'", 'https://maps.googleapis.com'],
+  'connect-src': ["'self'", 'https://maps.googleapis.com']
 }
+
+console.log('????????????')
+console.log(JSON.stringify(policies, null, 2))
+console.log('????????????')
 
 module.exports = Object.entries(policies)
   .map(([key, value]) => {
