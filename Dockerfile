@@ -28,7 +28,6 @@ RUN yarn install --production
 COPY --from=builder /home/node/app/dist ./dist
 COPY --from=builder /home/node/app/build ./build
 COPY --from=builder /home/node/app/.next ./.next
-COPY --from=builder /home/node/app/media ./media
 COPY --from=builder /home/node/app/public ./public
 
 EXPOSE 3000
