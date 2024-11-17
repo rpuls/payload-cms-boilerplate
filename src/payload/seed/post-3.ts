@@ -18,7 +18,7 @@ export const post3: Partial<Post> = {
       {
         children: [
           {
-            text: 'Post 3'
+            text: 'Medusa.js 2.0: A Game-Changer for E-commerce'
           }
         ],
         type: 'h1'

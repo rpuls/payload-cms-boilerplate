@@ -210,7 +210,7 @@ export const seed = async (payload: Payload): Promise<void> => {
   const post4Doc = await payload.create({
     collection: 'posts',
     data: JSON.parse(
-      JSON.stringify({ ...post4, categories: [eCommerceCategory.id] })
+      JSON.stringify({ ...post4, categories: [technologyCategory.id] })
         .replace(/"\{\{IMAGE\}\}"/g, image4ID)
         .replace(/"\{\{AUTHOR\}\}"/g, demoAuthorID)
     )
@@ -219,27 +219,33 @@ export const seed = async (payload: Payload): Promise<void> => {
   const posts = [post1Doc, post2Doc, post3Doc, post4Doc]
 
   // update each post with related posts
-
   await Promise.all([
     await payload.update({
       collection: 'posts',
       id: post1Doc.id,
       data: {
-        relatedPosts: [post2Doc.id, post3Doc.id]
+        relatedPosts: [post2Doc.id, post3Doc.id, post4Doc.id]
       }
     }),
     await payload.update({
       collection: 'posts',
       id: post2Doc.id,
       data: {
-        relatedPosts: [post1Doc.id, post3Doc.id]
+        relatedPosts: [post4Doc.id, post3Doc.id, post1Doc.id]
       }
     }),
     await payload.update({
       collection: 'posts',
       id: post3Doc.id,
       data: {
-        relatedPosts: [post1Doc.id, post2Doc.id]
+        relatedPosts: [post1Doc.id, post2Doc.id, post4Doc.id]
+      }
+    }),
+    await payload.update({
+      collection: 'posts',
+      id: post4Doc.id,
+      data: {
+        relatedPosts: [post1Doc.id, post2Doc.id, post3Doc.id]
       }
     })
   ])
@@ -298,7 +304,6 @@ export const seed = async (payload: Payload): Promise<void> => {
   })
 
   // update each project with related projects
-
   await Promise.all([
     await payload.update({
       collection: 'projects',
@@ -355,6 +360,8 @@ export const seed = async (payload: Payload): Promise<void> => {
         .replace(/"\{\{IMAGE_2\}\}"/g, image2ID)
         .replace(/"\{\{POSTS_PAGE_ID\}\}"/g, postsPageID)
         .replace(/"\{\{PROJECTS_PAGE_ID\}\}"/g, projectsPageID)
+        .replace(/"\{\{POST_1_ID\}\}"/g, post1Doc.id)
+        .replace(/"\{\{POST_3_ID\}\}"/g, post3Doc.id)
     )
   })
 

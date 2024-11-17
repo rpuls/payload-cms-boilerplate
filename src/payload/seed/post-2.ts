@@ -18,7 +18,7 @@ export const post2: Partial<Post> = {
       {
         children: [
           {
-            text: 'Post 2'
+            text: 'Getting Started with Payload CMS Website Template'
           }
         ],
         type: 'h1'

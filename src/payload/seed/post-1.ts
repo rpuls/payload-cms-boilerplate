@@ -1,4 +1,5 @@
 import type { Post } from '../payload-types'
+
 export const post1: Partial<Post> = {
   title: 'Exploring the Power of Payload CMS',
   slug: 'exploring-payload-cms',
