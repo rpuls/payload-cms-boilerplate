@@ -7,7 +7,6 @@ import seo from '@payloadcms/plugin-seo'
 import type { GenerateTitle } from '@payloadcms/plugin-seo/types'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import dotenv from 'dotenv'
-import fs from 'fs'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 
