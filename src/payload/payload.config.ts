@@ -77,19 +77,6 @@ export default buildConfig({
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
     {
-      path: '/list-media',
-      method: 'get',
-      handler: async (req, res) => {
-        const mediaDir = path.resolve(__dirname, '../../media')
-        fs.readdir(mediaDir, (err, files) => {
-          if (err) {
-            return res.status(500).json({ error: `Unable to read media directory: ${err.message}` })
-          }
-          return res.json({ files })
-        })
-      }
-    },
-    {
       path: '/seed',
       method: 'get',
       handler: seed
