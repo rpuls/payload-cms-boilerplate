@@ -77,37 +77,16 @@ export default buildConfig({
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
     {
-      path: '/scan-filesystem',
+      path: '/list-media',
       method: 'get',
       handler: async (req, res) => {
-        const startDir = '/app' // Start scanning from /app or change to '/' for root
-
-        const scanDirectory = (dirPath: string): string[] => {
-          let results = []
-          const list = fs.readdirSync(dirPath)
-          list.forEach(file => {
-            const filePath = path.join(dirPath, file)
-            const stat = fs.statSync(filePath)
-            if (stat && stat.isDirectory()) {
-              // Recursively scan subdirectories
-              results = results.concat(scanDirectory(filePath))
-            } else {
-              // Add file to results
-              results.push(filePath)
-            }
-          })
-          return results
-        }
-
-        try {
-          const files = scanDirectory(startDir) // Scan starting from /app
-          return res.json({ files })
-        } catch (err: unknown) {
-          if (err instanceof Error) {
-            return res.status(500).json({ error: `Unable to scan directory: ${err.message}` })
+        const mediaDir = path.resolve(__dirname, '../../media')
+        fs.readdir(mediaDir, (err, files) => {
+          if (err) {
+            return res.status(500).json({ error: `Unable to read media directory: ${err.message}` })
           }
-          return res.status(500).json({ error: 'Unable to scan directory' })
-        }
+          return res.json({ files })
+        })
       }
     },
     {
