@@ -7,6 +7,7 @@ import seo from '@payloadcms/plugin-seo'
 import type { GenerateTitle } from '@payloadcms/plugin-seo/types'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import dotenv from 'dotenv'
+import fs from 'fs'
 import path from 'path'
 import { buildConfig } from 'payload/config'
 
@@ -75,6 +76,40 @@ export default buildConfig({
   endpoints: [
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
+    {
+      path: '/scan-filesystem',
+      method: 'get',
+      handler: async (req, res) => {
+        const startDir = '/app' // Start scanning from /app or change to '/' for root
+
+        const scanDirectory = (dirPath: string): string[] => {
+          let results = []
+          const list = fs.readdirSync(dirPath)
+          list.forEach(file => {
+            const filePath = path.join(dirPath, file)
+            const stat = fs.statSync(filePath)
+            if (stat && stat.isDirectory()) {
+              // Recursively scan subdirectories
+              results = results.concat(scanDirectory(filePath))
+            } else {
+              // Add file to results
+              results.push(filePath)
+            }
+          })
+          return results
+        }
+
+        try {
+          const files = scanDirectory(startDir) // Scan starting from /app
+          return res.json({ files })
+        } catch (err: unknown) {
+          if (err instanceof Error) {
+            return res.status(500).json({ error: `Unable to scan directory: ${err.message}` })
+          }
+          return res.status(500).json({ error: 'Unable to scan directory' })
+        }
+      }
+    },
     {
       path: '/seed',
       method: 'get',
