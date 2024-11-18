@@ -47,8 +47,4 @@ const nextConfig = {
   }
 }
 
-console.log('********************************')
-console.log(JSON.stringify(nextConfig, null, 2))
-console.log('********************************')
-
 module.exports = nextConfig

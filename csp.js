@@ -6,16 +6,12 @@ const policies = {
   'img-src': [
     "'self'",
     'https://raw.githubusercontent.com',
-    process.env.NEXT_PUBLIC_SERVER_URL?.replace(/https?:\/\//, '') || '' // Allow dynamic domain
+    process.env.NEXT_PUBLIC_SERVER_URL || '' // Allow dynamic domain
   ],
   'font-src': ["'self'"],
   'frame-src': ["'self'"],
   'connect-src': ["'self'", 'https://maps.googleapis.com']
 }
-
-console.log('????????????')
-console.log(JSON.stringify(policies, null, 2))
-console.log('????????????')
 
 module.exports = Object.entries(policies)
   .map(([key, value]) => {
