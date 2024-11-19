@@ -8,7 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    // unoptimized: true,
+    unoptimized: true, // Note: currently, image optimization only works locally and inside docker.
     domains: ['localhost', publicUrl].filter(Boolean),
     remotePatterns: [
       {
