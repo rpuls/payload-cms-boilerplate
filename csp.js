@@ -5,7 +5,6 @@ const policies = {
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
   'img-src': [
     "'self'",
-    'https://raw.githubusercontent.com',
     process.env.NEXT_PUBLIC_SERVER_URL || '' // Allow dynamic domain
   ],
   'font-src': ["'self'"],

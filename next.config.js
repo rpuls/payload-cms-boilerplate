@@ -2,14 +2,21 @@
 const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
+const publicUrl = process.env.NEXT_PUBLIC_SERVER_URL.replace(/https?:\/\//, '')
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    unoptimized: true,
-    domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL]
-      .filter(Boolean)
-      .map(url => url.replace(/https?:\/\//, ''))
+    // unoptimized: true,
+    domains: ['localhost', publicUrl].filter(Boolean),
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: publicUrl,
+        pathname: '/media/**'
+      }
+    ]
   },
   redirects,
   async headers() {
